@@ -59,6 +59,12 @@
     <Compile Include="FAddProductToCart.Designer.cs">
       <DependentUpon>FAddProductToCart.cs</DependentUpon>
     </Compile>
+    <Compile Include="FEditOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEditOrder.Designer.cs">
+      <DependentUpon>FEditOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FEditCartItem.resx">
       <DependentUpon>FEditCartItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FEditOrder.resx">
+      <DependentUpon>FEditOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FEditProducts.resx">
       <DependentUpon>FEditProducts.cs</DependentUpon>

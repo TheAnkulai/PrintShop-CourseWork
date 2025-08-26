@@ -34,7 +34,6 @@
             this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.rtxtCharacter = new System.Windows.Forms.RichTextBox();
             this.cbAdditionalProduct = new System.Windows.Forms.ComboBox();
             this.cbColor = new System.Windows.Forms.ComboBox();
             this.cbMaterial = new System.Windows.Forms.ComboBox();
@@ -55,6 +53,8 @@
             this.txtProductPricePerEach = new System.Windows.Forms.TextBox();
             this.txtAdditionalProductPrice = new System.Windows.Forms.TextBox();
             this.txtMaterialPrice = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rtxtCharacter = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,16 +104,6 @@
             this.label2.Size = new System.Drawing.Size(88, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Категория";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(60, 165);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 23);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Описание товара";
             // 
             // label4
             // 
@@ -184,16 +174,6 @@
             this.label10.Size = new System.Drawing.Size(133, 23);
             this.label10.TabIndex = 12;
             this.label10.Text = "Цена материала";
-            // 
-            // rtxtCharacter
-            // 
-            this.rtxtCharacter.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rtxtCharacter.Location = new System.Drawing.Point(55, 191);
-            this.rtxtCharacter.Name = "rtxtCharacter";
-            this.rtxtCharacter.ReadOnly = true;
-            this.rtxtCharacter.Size = new System.Drawing.Size(389, 96);
-            this.rtxtCharacter.TabIndex = 13;
-            this.rtxtCharacter.Text = "";
             // 
             // cbAdditionalProduct
             // 
@@ -314,6 +294,26 @@
             this.txtMaterialPrice.Size = new System.Drawing.Size(389, 30);
             this.txtMaterialPrice.TabIndex = 28;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(60, 165);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(141, 23);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Описание товара";
+            // 
+            // rtxtCharacter
+            // 
+            this.rtxtCharacter.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rtxtCharacter.Location = new System.Drawing.Point(55, 191);
+            this.rtxtCharacter.Name = "rtxtCharacter";
+            this.rtxtCharacter.ReadOnly = true;
+            this.rtxtCharacter.Size = new System.Drawing.Size(389, 96);
+            this.rtxtCharacter.TabIndex = 13;
+            this.rtxtCharacter.Text = "";
+            // 
             // FAddProductToCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,7 +362,6 @@
         private System.Windows.Forms.TextBox txtTotalPrice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -370,7 +369,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox rtxtCharacter;
         private System.Windows.Forms.ComboBox cbAdditionalProduct;
         private System.Windows.Forms.ComboBox cbColor;
         private System.Windows.Forms.ComboBox cbMaterial;
@@ -383,5 +381,7 @@
         private System.Windows.Forms.TextBox txtProductPricePerEach;
         private System.Windows.Forms.TextBox txtAdditionalProductPrice;
         private System.Windows.Forms.TextBox txtMaterialPrice;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox rtxtCharacter;
     }
 }

@@ -49,10 +49,13 @@ namespace PrintShop
             classAdo.AddButton(dgvCart, "btnDeleteCartItem", "Удалить");
 
             //Заказы
-            classAdo.ComboBoxBind("ViewProducts", cbProductNameFilter, "Название", "ID");
-            classAdo.ComboBoxBind("ViewColors", cbColorFilter, "color", "id_color");
-            classAdo.ComboBoxBind("ViewAdditionalProducts", cbAdditionalProductFilter, "Название", "ID");
-            classAdo.ComboBoxBind("ViewMaterials", cbMaterialFilter, "materialName", "id_material");
+            
+
+            //Состав Заказов
+            classAdo.ComboBoxBind("ViewProducts", cbOrderCompositionProductNameFilter, "Название", "ID");
+            classAdo.ComboBoxBind("ViewColors", cbOrderCompositionColorFilter, "color", "id_color");
+            classAdo.ComboBoxBind("ViewAdditionalProducts", cbOrderCompositionAdditionalProductFilter, "Название", "ID");
+            classAdo.ComboBoxBind("ViewMaterials", cbOrderCompositionMaterialFilter, "materialName", "id_material");
 
             //обычный пользователь
             if (access_level == 3)
@@ -61,6 +64,7 @@ namespace PrintShop
                 if (TabControl1.TabPages.Contains(tabClients)) TabControl1.TabPages.Remove(tabClients);
                 if (TabControl1.TabPages.Contains(tabStaff)) TabControl1.TabPages.Remove(tabStaff);
                 if (TabControl1.TabPages.Contains(tabReports)) TabControl1.TabPages.Remove(tabReports);
+                if (TabControl1.TabPages.Contains(tabOrders)) TabControl1.TabPages.Remove(tabOrders);
                 
                 //Услуги
                 gbAddNewProduct.Visible = false;
@@ -72,16 +76,12 @@ namespace PrintShop
                 btnAddAdditionalProduct.Enabled = false;
                 btnAddAdditionalProduct.Visible = false;
 
-                //Заказы
-                classAdo.DataGridBindOfProcWithParameters("ViewUserOrders", "@id_user", userId, dgvOrders);
-                chbFIOStaffFilter.Visible = false;
-                chbFIOStaffFilter.Enabled = false;
-                chbUserFIOFilter.Enabled = false;
-                chbUserFIOFilter.Visible = false;
-                cbStaffFilter.Enabled = false;
-                cbStaffFilter.Visible = false;
-                txtUserFIOFilter.Visible = false;
-                txtUserFIOFilter.Enabled = false;
+                //Состав Заказов
+                classAdo.DataGridBindOfProcWithParameters("ViewUserOrders", "@id_user", userId, dgvOrderPositions);
+                chbOrderCompositionUserFIOFilter.Enabled = false;
+                chbOrderCompositionUserFIOFilter.Visible = false;
+                txtOrderCompositionUserFIOFilter.Visible = false;
+                txtOrderCompositionUserFIOFilter.Enabled = false;
             }
 
             //администратор
@@ -98,10 +98,12 @@ namespace PrintShop
                 classAdo.AddButton(dgvAdditionalProducts, "btnDeleteAdditionalProduct", "Удалить");
                 //Корзина
 
+                //Состав Заказов
+                classAdo.DataGridBindOfProc("ViewOrders", dgvOrderPositions);
+
                 //Заказы
-                classAdo.DataGridBindOfProc("ViewOrders", dgvOrders);
-                classAdo.ComboBoxBind("ViewStaffFIO", cbStaffFilter, "FIO", "id_staff");
-                classAdo.AddButton(dgvOrders, "btnEditOrderPosition", "Изменить");
+                classAdo.DataGridBindOfProc("ViewFilteredOrders", dgvOrders);
+                classAdo.AddButton(dgvOrders, "btnEditOrder", "Изменить");
             }
         }
 
@@ -391,11 +393,11 @@ namespace PrintShop
                 MessageBox.Show("Заказ успешно оформлен! Количество позиций в заказе: " + cart.Items.Count, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (access_level == 1)
                 {
-                    classAdo.DataGridBindOfProc("ViewOrders", dgvOrders);
+                    classAdo.DataGridBindOfProc("ViewOrders", dgvOrderPositions);
                 }
                 else if (access_level == 3)
                 {
-                    classAdo.DataGridBindOfProcWithParameters("ViewUserOrders", "@id_user", userId, dgvOrders);
+                    classAdo.DataGridBindOfProcWithParameters("ViewUserOrders", "@id_user", userId, dgvOrderPositions);
                 }
                 cart.Items.Clear();
                 cart.RefreshCart(dgvCart, cart);
@@ -404,35 +406,37 @@ namespace PrintShop
 
         }
 
-        //Вкладка Заказы
+        //Вкладка Состав Заказов
 
         private void btnFindOrders_Click(object sender, EventArgs e)
         {
+            FindFilteredOrderPositions();
+        }
+
+        
+
+        private void FindFilteredOrderPositions()
+        {
             SqlConnection conn = new SqlConnection(ConnectionString);
-            SqlCommand cmd = new SqlCommand("ViewFilteredOrders", conn);
+            SqlCommand cmd = new SqlCommand("ViewFilteredOrderComposition", conn);
 
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@id_user", userId);
             cmd.Parameters.AddWithValue("@accessLevel", access_level);
-            cmd.Parameters.AddWithValue("@id_order", !chbOrderIdFilter.Checked ? (object)DBNull.Value : Convert.ToInt32(txtOrderIdFilter.Text));
-            cmd.Parameters.AddWithValue("@productName", !chbProductNameFilter.Checked ? (object)DBNull.Value : cbProductNameFilter.Text);
-            cmd.Parameters.AddWithValue("@id_color", !chbColorFilter.Checked ? (object)DBNull.Value : cbColorFilter.SelectedValue);
-            cmd.Parameters.AddWithValue("@id_addProduct", !chbAdditionalProductFilter.Checked ? (object)DBNull.Value : cbAdditionalProductFilter.SelectedValue);
-            cmd.Parameters.AddWithValue("@id_material", !chbMaterialFilter.Checked ? (object)DBNull.Value : cbMaterialFilter.SelectedValue);
-            cmd.Parameters.AddWithValue("@quantity", !chbQuantityFilter.Checked ? (object)DBNull.Value : numQuantityFilter.Value);
-            cmd.Parameters.AddWithValue("@orderDateFrom", !chbOrderDateFilter.Checked ? (object)DBNull.Value : dateOrderFromFilter.Value.Date);
-            cmd.Parameters.AddWithValue("@orderDateTo", !chbOrderDateFilter.Checked ? (object)DBNull.Value : dateOrderToFilter.Value.Date);
-            cmd.Parameters.AddWithValue("@maxPositionPrice", !chbMaxPositionPriceFilter.Checked ? (object)DBNull.Value : numMaxPositionPrice.Value);
-            cmd.Parameters.AddWithValue("@status", !chbStatusFilter.Checked ? (object)DBNull.Value : cbStatusFilter.Text);
+            cmd.Parameters.AddWithValue("@id_order", !chbOrderCompositionOrderIdFilter.Checked || txtOrderCompositionOrderIdFilter.Text == "" ? (object)DBNull.Value : Convert.ToInt32(txtOrderCompositionOrderIdFilter.Text));
+            cmd.Parameters.AddWithValue("@productName", !chbOrderCompositionProductNameFilter.Checked || cbOrderCompositionProductNameFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionProductNameFilter.Text);
+            cmd.Parameters.AddWithValue("@id_color", !chbOrderCompositionColorFilter.Checked || cbOrderCompositionColorFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionColorFilter.SelectedValue);
+            cmd.Parameters.AddWithValue("@id_addProduct", !chbOrderCompositionAdditionalProductFilter.Checked || cbOrderCompositionAdditionalProductFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionAdditionalProductFilter.SelectedValue);
+            cmd.Parameters.AddWithValue("@id_material", !chbOrderCompositionMaterialFilter.Checked || cbOrderCompositionMaterialFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionMaterialFilter.SelectedValue);
+            cmd.Parameters.AddWithValue("@quantity", !chbOrderCompositionQuantityFilter.Checked || numOrderCompositionQuantityFilter.Value == 0 ? (object)DBNull.Value : numOrderCompositionQuantityFilter.Value);
+            cmd.Parameters.AddWithValue("@orderDateFrom", !chbOrderCompositionDateFilter.Checked ? (object)DBNull.Value : dateOrderPositionFromFilter.Value.Date);
+            cmd.Parameters.AddWithValue("@orderDateTo", !chbOrderCompositionDateFilter.Checked ? (object)DBNull.Value : dateOrderPositionToFilter.Value.Date);
+            cmd.Parameters.AddWithValue("@maxPositionPrice", !chbOrderCompositionMaxPositionPriceFilter.Checked || numOrderCompositionMaxPositionPrice.Value == 0 ? (object)DBNull.Value : numOrderCompositionMaxPositionPrice.Value);
+            cmd.Parameters.AddWithValue("@status", !chbOrderCompositionStatusFilter.Checked || cbOrderCompositionStatusFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionStatusFilter.Text);
             if (access_level == 1)
             {
-                cmd.Parameters.AddWithValue("@FIO", !chbUserFIOFilter.Checked ? (object)DBNull.Value : txtUserFIOFilter.Text);
-                cmd.Parameters.AddWithValue("@id_staff", !chbFIOStaffFilter.Checked ? (object)DBNull.Value : cbStaffFilter.SelectedValue);
-            }
-            foreach (SqlParameter p in cmd.Parameters)
-            {
-                Console.WriteLine($"{p.ParameterName} = {p.Value}");
+                cmd.Parameters.AddWithValue("@FIO", !chbOrderCompositionUserFIOFilter.Checked || txtOrderCompositionUserFIOFilter.Text == "" ? (object)DBNull.Value : txtOrderCompositionUserFIOFilter.Text);
             }
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -442,6 +446,8 @@ namespace PrintShop
             dgvOrders.DataSource = table;
         }
 
+
+        //Вкладка Заказы
         private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var dgv = sender as DataGridView;
@@ -454,21 +460,21 @@ namespace PrintShop
 
                 switch (property)
                 {
-                    case "btnEditOrderPosition":
+                    case "btnEditOrder":
                         int nRow = dgvOrders.CurrentRow.Index;
-                        int editOrderPositionId = (int)dgvOrders.Rows[nRow].Cells["id позиции"].Value;
+                        int editOrderId = (int)dgvOrders.Rows[nRow].Cells["id заказа"].Value;
+                        string editOrderUserFIO = dgvOrders.Rows[nRow].Cells["ФИО заказчика"].Value.ToString();
+                        string editOrderTotalPrice = dgvOrders.Rows[nRow].Cells["Цена заказа"].Value.ToString();
+                        DateTime editOrderDateStart = Convert.ToDateTime(dgvOrders.Rows[nRow].Cells["Дата заказа"].Value);
+                        DateTime editOrderDateEnd = dgvOrders.Rows[nRow].Cells["Дата завершения заказа"].Value == DBNull.Value ? DateTime.Now : Convert.ToDateTime(dgvOrders.Rows[nRow].Cells["Дата завершения заказа"].Value);
+                        string editOrderStaffFIO = dgvOrders.Rows[nRow].Cells["Исполнитель"].Value.ToString();
+                        string editOrderStatus = dgvOrders.Rows[nRow].Cells["Статус"].Value.ToString();
 
-                        string editOrderPositionUserFIO = dgvOrders.Rows[nRow].Cells["ФИО заказчика"].Value.ToString();
-                        string editOrderPositionProductName = dgvOrders.Rows[nRow].Cells["Название товара"].Value.ToString();
-                        string editOrderPositionColor = dgvOrders.Rows[nRow].Cells["Цветность"].Value.ToString();
-                        string editOrderPositionAdditionalProductName = dgvOrders.Rows[nRow].Cells["Доп. услуга"].Value.ToString();
-                        string editorderPositionMaterialName = dgvOrders.Rows[nRow].Cells["Материал"].Value.ToString();
-                        string editOrderPositionQuantity = dgvOrders.Rows[nRow].Cells["Количество"].Value.ToString();
-                        string editOrderPositionPrice = dgvOrders.Rows[nRow].Cells["Цена за позицию"].Value.ToString();
-                        DateTime editOrderPositionDateStart = Convert.ToDateTime(dgvOrders.Rows[nRow].Cells["Дата заказа"].Value);
-                        DateTime editOrderPositionDateEnd = Convert.ToDateTime(dgvOrders.Rows[nRow].Cells["Дата завершения заказа"].Value);
-                        string editOrderPositionStaffFIO = dgvOrders.Rows[nRow].Cells["Исполнитель"].Value.ToString();
-
+                        FEditOrder fEditOrderPosition = new FEditOrder(editOrderId, editOrderUserFIO, editOrderTotalPrice,
+                            editOrderDateStart, editOrderDateEnd,
+                            editOrderStaffFIO, editOrderStatus);
+                        fEditOrderPosition.ShowDialog();
+                        FindFilteredOrders();
 
                         break;
                     default:
@@ -476,6 +482,32 @@ namespace PrintShop
                         break;
                 }
             }
+        }
+
+        private void FindFilteredOrders()
+        {
+            SqlConnection conn = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand("ViewFilteredOrders", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@id_order", !chbOrderFilterOrderId.Checked || txtOrderFilterOrderId.Text == "" ? (object)DBNull.Value : Convert.ToInt32(txtOrderFilterOrderId.Text));
+            cmd.Parameters.AddWithValue("@id_staff", !chbOrderFilterStaffFIO.Checked || cbOrderFilterStaffFIO.SelectedValue == null ? (object)DBNull.Value : cbOrderFilterStaffFIO.SelectedValue);
+            cmd.Parameters.AddWithValue("@orderDateFrom", !chbOrderFilterDate.Checked ? (object)DBNull.Value : dateOrderFrom.Value.Date);
+            cmd.Parameters.AddWithValue("@orderDateTo", !chbOrderFilterDate.Checked ? (object)DBNull.Value : dateOrderTo.Value.Date);
+            cmd.Parameters.AddWithValue("@maxTotalPrice", !chbOrderFilterMaxPrice.Checked ? (object)DBNull.Value : numOrderFilterMaxPrice.Value);
+            cmd.Parameters.AddWithValue("@status", !chbOrderFilterStatus.Checked || cbOrderFilterStatus.SelectedValue == null ? (object)DBNull.Value : cbOrderFilterStatus.Text);
+            cmd.Parameters.AddWithValue("@FIO", !chbOrderFilterUserFIO.Checked || txtOrderFilterUserFIO.Text == "" ? (object)DBNull.Value : txtOrderFilterUserFIO.Text);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            conn.Open();
+            adapter.Fill(table);
+            dgvOrders.DataSource = table;
+        }
+        private void btnSearchFilteredOrders_Click(object sender, EventArgs e)
+        {
+            FindFilteredOrders();
         }
     }
 }

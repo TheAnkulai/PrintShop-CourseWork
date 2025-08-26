@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -72,39 +72,58 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.tabOrders = new System.Windows.Forms.TabPage();
+            this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbOrderFilterStaffFIO = new System.Windows.Forms.ComboBox();
+            this.btnResetOrderFilters = new System.Windows.Forms.Button();
+            this.btnSearchFilteredOrders = new System.Windows.Forms.Button();
+            this.cbOrderFilterStatus = new System.Windows.Forms.ComboBox();
+            this.txtOrderFilterUserFIO = new System.Windows.Forms.TextBox();
+            this.txtOrderFilterOrderId = new System.Windows.Forms.TextBox();
+            this.chbOrderFilterStatus = new System.Windows.Forms.CheckBox();
+            this.chbOrderFilterUserFIO = new System.Windows.Forms.CheckBox();
+            this.chbOrderFilterStaffFIO = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dateOrderTo = new System.Windows.Forms.DateTimePicker();
+            this.dateOrderFrom = new System.Windows.Forms.DateTimePicker();
+            this.chbOrderFilterOrderId = new System.Windows.Forms.CheckBox();
+            this.chbOrderFilterDate = new System.Windows.Forms.CheckBox();
+            this.tabOrderPositions = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbStaffFilter = new System.Windows.Forms.ComboBox();
+            this.cbOrderCompositionStatusFilter = new System.Windows.Forms.ComboBox();
+            this.chbOrderCompositionStatusFilter = new System.Windows.Forms.CheckBox();
+            this.chbOrderCompositionQuantityFilter = new System.Windows.Forms.CheckBox();
+            this.numOrderCompositionQuantityFilter = new System.Windows.Forms.NumericUpDown();
             this.btnResetFilters = new System.Windows.Forms.Button();
             this.btnFindOrders = new System.Windows.Forms.Button();
-            this.numMaxPositionPrice = new System.Windows.Forms.NumericUpDown();
-            this.cbStatusFilter = new System.Windows.Forms.ComboBox();
-            this.cbMaterialFilter = new System.Windows.Forms.ComboBox();
-            this.cbAdditionalProductFilter = new System.Windows.Forms.ComboBox();
-            this.cbColorFilter = new System.Windows.Forms.ComboBox();
-            this.cbProductNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtUserFIOFilter = new System.Windows.Forms.TextBox();
-            this.txtOrderIdFilter = new System.Windows.Forms.TextBox();
-            this.chbStatusFilter = new System.Windows.Forms.CheckBox();
-            this.chbProductNameFilter = new System.Windows.Forms.CheckBox();
-            this.chbUserFIOFilter = new System.Windows.Forms.CheckBox();
-            this.chbMaxPositionPriceFilter = new System.Windows.Forms.CheckBox();
-            this.chbFIOStaffFilter = new System.Windows.Forms.CheckBox();
-            this.chbMaterialFilter = new System.Windows.Forms.CheckBox();
-            this.chbAdditionalProductFilter = new System.Windows.Forms.CheckBox();
-            this.chbColorFilter = new System.Windows.Forms.CheckBox();
+            this.numOrderCompositionMaxPositionPrice = new System.Windows.Forms.NumericUpDown();
+            this.cbOrderCompositionMaterialFilter = new System.Windows.Forms.ComboBox();
+            this.cbOrderCompositionAdditionalProductFilter = new System.Windows.Forms.ComboBox();
+            this.cbOrderCompositionColorFilter = new System.Windows.Forms.ComboBox();
+            this.cbOrderCompositionProductNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtOrderCompositionUserFIOFilter = new System.Windows.Forms.TextBox();
+            this.txtOrderCompositionOrderIdFilter = new System.Windows.Forms.TextBox();
+            this.chbOrderCompositionProductNameFilter = new System.Windows.Forms.CheckBox();
+            this.chbOrderCompositionUserFIOFilter = new System.Windows.Forms.CheckBox();
+            this.chbOrderCompositionMaxPositionPriceFilter = new System.Windows.Forms.CheckBox();
+            this.chbOrderCompositionMaterialFilter = new System.Windows.Forms.CheckBox();
+            this.chbOrderCompositionAdditionalProductFilter = new System.Windows.Forms.CheckBox();
+            this.chbOrderCompositionColorFilter = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.dateOrderToFilter = new System.Windows.Forms.DateTimePicker();
-            this.dateOrderFromFilter = new System.Windows.Forms.DateTimePicker();
-            this.chbOrderIdFilter = new System.Windows.Forms.CheckBox();
-            this.chbOrderDateFilter = new System.Windows.Forms.CheckBox();
-            this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.dateOrderPositionToFilter = new System.Windows.Forms.DateTimePicker();
+            this.dateOrderPositionFromFilter = new System.Windows.Forms.DateTimePicker();
+            this.chbOrderCompositionOrderIdFilter = new System.Windows.Forms.CheckBox();
+            this.chbOrderCompositionDateFilter = new System.Windows.Forms.CheckBox();
+            this.dgvOrderPositions = new System.Windows.Forms.DataGridView();
             this.tabClients = new System.Windows.Forms.TabPage();
             this.tabStaff = new System.Windows.Forms.TabPage();
             this.tabReports = new System.Windows.Forms.TabPage();
-            this.numQuantityFilter = new System.Windows.Forms.NumericUpDown();
-            this.chbQuantityFilter = new System.Windows.Forms.CheckBox();
+            this.numOrderFilterMaxPrice = new System.Windows.Forms.NumericUpDown();
+            this.chbOrderFilterMaxPrice = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TabControl1.SuspendLayout();
@@ -121,11 +140,16 @@
             this.tabCart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.tabOrders.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaxPositionPrice)).BeginInit();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantityFilter)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tabOrderPositions.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrderCompositionQuantityFilter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrderCompositionMaxPositionPrice)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderPositions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrderFilterMaxPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -188,6 +212,7 @@
             this.TabControl1.Controls.Add(this.tabAdditionalProducts);
             this.TabControl1.Controls.Add(this.tabCart);
             this.TabControl1.Controls.Add(this.tabOrders);
+            this.TabControl1.Controls.Add(this.tabOrderPositions);
             this.TabControl1.Controls.Add(this.tabClients);
             this.TabControl1.Controls.Add(this.tabStaff);
             this.TabControl1.Controls.Add(this.tabReports);
@@ -208,7 +233,7 @@
             this.tabProducts.Location = new System.Drawing.Point(4, 32);
             this.tabProducts.Name = "tabProducts";
             this.tabProducts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProducts.Size = new System.Drawing.Size(1323, 544);
+            this.tabProducts.Size = new System.Drawing.Size(1476, 544);
             this.tabProducts.TabIndex = 1;
             this.tabProducts.Text = "Товары";
             this.tabProducts.UseVisualStyleBackColor = true;
@@ -225,7 +250,7 @@
             this.gbAddNewProduct.Controls.Add(this.txtProductNameAdd);
             this.gbAddNewProduct.Controls.Add(this.cbCategoryAdd);
             this.gbAddNewProduct.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbAddNewProduct.Location = new System.Drawing.Point(1015, 124);
+            this.gbAddNewProduct.Location = new System.Drawing.Point(1168, 124);
             this.gbAddNewProduct.Name = "gbAddNewProduct";
             this.gbAddNewProduct.Size = new System.Drawing.Size(305, 417);
             this.gbAddNewProduct.TabIndex = 3;
@@ -325,19 +350,19 @@
             this.dgvProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvProducts.Location = new System.Drawing.Point(3, 124);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 70;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducts.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducts.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvProducts.Size = new System.Drawing.Size(1006, 417);
             this.dgvProducts.TabIndex = 2;
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
@@ -351,7 +376,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1317, 121);
+            this.panel2.Size = new System.Drawing.Size(1470, 121);
             this.panel2.TabIndex = 0;
             // 
             // btnResetFilter
@@ -398,7 +423,7 @@
             this.tabAdditionalProducts.Controls.Add(this.dgvAdditionalProducts);
             this.tabAdditionalProducts.Location = new System.Drawing.Point(4, 32);
             this.tabAdditionalProducts.Name = "tabAdditionalProducts";
-            this.tabAdditionalProducts.Size = new System.Drawing.Size(1323, 544);
+            this.tabAdditionalProducts.Size = new System.Drawing.Size(1476, 544);
             this.tabAdditionalProducts.TabIndex = 6;
             this.tabAdditionalProducts.Text = "Доп. улсуги";
             this.tabAdditionalProducts.UseVisualStyleBackColor = true;
@@ -411,7 +436,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(1009, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(314, 544);
+            this.panel3.Size = new System.Drawing.Size(467, 544);
             this.panel3.TabIndex = 1;
             // 
             // btnAddAdditionalProduct
@@ -498,7 +523,7 @@
             this.tabCart.Location = new System.Drawing.Point(4, 32);
             this.tabCart.Name = "tabCart";
             this.tabCart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCart.Size = new System.Drawing.Size(1323, 544);
+            this.tabCart.Size = new System.Drawing.Size(1476, 544);
             this.tabCart.TabIndex = 2;
             this.tabCart.Text = "Корзина";
             this.tabCart.UseVisualStyleBackColor = true;
@@ -558,50 +583,242 @@
             this.dgvCart.Location = new System.Drawing.Point(3, 3);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersWidth = 70;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvCart.Size = new System.Drawing.Size(1047, 538);
             this.dgvCart.TabIndex = 0;
             this.dgvCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellContentClick);
             // 
             // tabOrders
             // 
-            this.tabOrders.Controls.Add(this.groupBox3);
             this.tabOrders.Controls.Add(this.dgvOrders);
+            this.tabOrders.Controls.Add(this.groupBox1);
             this.tabOrders.Location = new System.Drawing.Point(4, 32);
             this.tabOrders.Name = "tabOrders";
-            this.tabOrders.Padding = new System.Windows.Forms.Padding(3);
             this.tabOrders.Size = new System.Drawing.Size(1476, 544);
-            this.tabOrders.TabIndex = 3;
+            this.tabOrders.TabIndex = 8;
             this.tabOrders.Text = "Заказы";
             this.tabOrders.UseVisualStyleBackColor = true;
             // 
+            // dgvOrders
+            // 
+            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOrders.Location = new System.Drawing.Point(0, 175);
+            this.dgvOrders.Name = "dgvOrders";
+            this.dgvOrders.Size = new System.Drawing.Size(1476, 369);
+            this.dgvOrders.TabIndex = 3;
+            this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellContentClick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chbOrderFilterMaxPrice);
+            this.groupBox1.Controls.Add(this.numOrderFilterMaxPrice);
+            this.groupBox1.Controls.Add(this.cbOrderFilterStaffFIO);
+            this.groupBox1.Controls.Add(this.btnResetOrderFilters);
+            this.groupBox1.Controls.Add(this.btnSearchFilteredOrders);
+            this.groupBox1.Controls.Add(this.cbOrderFilterStatus);
+            this.groupBox1.Controls.Add(this.txtOrderFilterUserFIO);
+            this.groupBox1.Controls.Add(this.txtOrderFilterOrderId);
+            this.groupBox1.Controls.Add(this.chbOrderFilterStatus);
+            this.groupBox1.Controls.Add(this.chbOrderFilterUserFIO);
+            this.groupBox1.Controls.Add(this.chbOrderFilterStaffFIO);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.chbOrderFilterOrderId);
+            this.groupBox1.Controls.Add(this.chbOrderFilterDate);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1476, 175);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Фильтры поиска";
+            // 
+            // cbOrderFilterStaffFIO
+            // 
+            this.cbOrderFilterStaffFIO.FormattingEnabled = true;
+            this.cbOrderFilterStaffFIO.Location = new System.Drawing.Point(834, 56);
+            this.cbOrderFilterStaffFIO.Name = "cbOrderFilterStaffFIO";
+            this.cbOrderFilterStaffFIO.Size = new System.Drawing.Size(179, 31);
+            this.cbOrderFilterStaffFIO.TabIndex = 22;
+            // 
+            // btnResetOrderFilters
+            // 
+            this.btnResetOrderFilters.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnResetOrderFilters.Location = new System.Drawing.Point(291, 92);
+            this.btnResetOrderFilters.Name = "btnResetOrderFilters";
+            this.btnResetOrderFilters.Size = new System.Drawing.Size(172, 30);
+            this.btnResetOrderFilters.TabIndex = 21;
+            this.btnResetOrderFilters.Text = "сбросить фильтры";
+            this.btnResetOrderFilters.UseVisualStyleBackColor = true;
+            // 
+            // btnSearchFilteredOrders
+            // 
+            this.btnSearchFilteredOrders.Location = new System.Drawing.Point(552, 95);
+            this.btnSearchFilteredOrders.Name = "btnSearchFilteredOrders";
+            this.btnSearchFilteredOrders.Size = new System.Drawing.Size(233, 67);
+            this.btnSearchFilteredOrders.TabIndex = 20;
+            this.btnSearchFilteredOrders.Text = "Поиск";
+            this.btnSearchFilteredOrders.UseVisualStyleBackColor = true;
+            this.btnSearchFilteredOrders.Click += new System.EventHandler(this.btnSearchFilteredOrders_Click);
+            // 
+            // cbOrderFilterStatus
+            // 
+            this.cbOrderFilterStatus.FormattingEnabled = true;
+            this.cbOrderFilterStatus.Items.AddRange(new object[] {
+            "Создан",
+            "В производстве",
+            "Готов к выдаче",
+            "Завершен"});
+            this.cbOrderFilterStatus.Location = new System.Drawing.Point(653, 55);
+            this.cbOrderFilterStatus.Name = "cbOrderFilterStatus";
+            this.cbOrderFilterStatus.Size = new System.Drawing.Size(175, 31);
+            this.cbOrderFilterStatus.TabIndex = 17;
+            // 
+            // txtOrderFilterUserFIO
+            // 
+            this.txtOrderFilterUserFIO.Location = new System.Drawing.Point(472, 55);
+            this.txtOrderFilterUserFIO.Name = "txtOrderFilterUserFIO";
+            this.txtOrderFilterUserFIO.Size = new System.Drawing.Size(175, 30);
+            this.txtOrderFilterUserFIO.TabIndex = 12;
+            // 
+            // txtOrderFilterOrderId
+            // 
+            this.txtOrderFilterOrderId.Location = new System.Drawing.Point(291, 56);
+            this.txtOrderFilterOrderId.Name = "txtOrderFilterOrderId";
+            this.txtOrderFilterOrderId.Size = new System.Drawing.Size(175, 30);
+            this.txtOrderFilterOrderId.TabIndex = 11;
+            // 
+            // chbOrderFilterStatus
+            // 
+            this.chbOrderFilterStatus.AutoSize = true;
+            this.chbOrderFilterStatus.Location = new System.Drawing.Point(653, 29);
+            this.chbOrderFilterStatus.Name = "chbOrderFilterStatus";
+            this.chbOrderFilterStatus.Size = new System.Drawing.Size(80, 27);
+            this.chbOrderFilterStatus.TabIndex = 10;
+            this.chbOrderFilterStatus.Text = "Статус";
+            this.chbOrderFilterStatus.UseVisualStyleBackColor = true;
+            // 
+            // chbOrderFilterUserFIO
+            // 
+            this.chbOrderFilterUserFIO.AutoSize = true;
+            this.chbOrderFilterUserFIO.Location = new System.Drawing.Point(472, 29);
+            this.chbOrderFilterUserFIO.Name = "chbOrderFilterUserFIO";
+            this.chbOrderFilterUserFIO.Size = new System.Drawing.Size(142, 27);
+            this.chbOrderFilterUserFIO.TabIndex = 8;
+            this.chbOrderFilterUserFIO.Text = "ФИО заказчика";
+            this.chbOrderFilterUserFIO.UseVisualStyleBackColor = true;
+            // 
+            // chbOrderFilterStaffFIO
+            // 
+            this.chbOrderFilterStaffFIO.AutoSize = true;
+            this.chbOrderFilterStaffFIO.Location = new System.Drawing.Point(834, 29);
+            this.chbOrderFilterStaffFIO.Name = "chbOrderFilterStaffFIO";
+            this.chbOrderFilterStaffFIO.Size = new System.Drawing.Size(156, 27);
+            this.chbOrderFilterStaffFIO.TabIndex = 6;
+            this.chbOrderFilterStaffFIO.Text = "ФИО сотрудника";
+            this.chbOrderFilterStaffFIO.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.dateOrderTo);
+            this.groupBox2.Controls.Add(this.dateOrderFrom);
+            this.groupBox2.Location = new System.Drawing.Point(6, 55);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(279, 99);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(11, 68);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(31, 23);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "До";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(11, 33);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(31, 23);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "От";
+            // 
+            // dateOrderTo
+            // 
+            this.dateOrderTo.Location = new System.Drawing.Point(53, 65);
+            this.dateOrderTo.Name = "dateOrderTo";
+            this.dateOrderTo.Size = new System.Drawing.Size(220, 30);
+            this.dateOrderTo.TabIndex = 1;
+            // 
+            // dateOrderFrom
+            // 
+            this.dateOrderFrom.Location = new System.Drawing.Point(53, 29);
+            this.dateOrderFrom.Name = "dateOrderFrom";
+            this.dateOrderFrom.Size = new System.Drawing.Size(220, 30);
+            this.dateOrderFrom.TabIndex = 0;
+            // 
+            // chbOrderFilterOrderId
+            // 
+            this.chbOrderFilterOrderId.AutoSize = true;
+            this.chbOrderFilterOrderId.Location = new System.Drawing.Point(291, 29);
+            this.chbOrderFilterOrderId.Name = "chbOrderFilterOrderId";
+            this.chbOrderFilterOrderId.Size = new System.Drawing.Size(94, 27);
+            this.chbOrderFilterOrderId.TabIndex = 1;
+            this.chbOrderFilterOrderId.Text = "id заказа";
+            this.chbOrderFilterOrderId.UseVisualStyleBackColor = true;
+            // 
+            // chbOrderFilterDate
+            // 
+            this.chbOrderFilterDate.AutoSize = true;
+            this.chbOrderFilterDate.Location = new System.Drawing.Point(6, 29);
+            this.chbOrderFilterDate.Name = "chbOrderFilterDate";
+            this.chbOrderFilterDate.Size = new System.Drawing.Size(116, 27);
+            this.chbOrderFilterDate.TabIndex = 0;
+            this.chbOrderFilterDate.Text = "Дата заказа";
+            this.chbOrderFilterDate.UseVisualStyleBackColor = true;
+            // 
+            // tabOrderPositions
+            // 
+            this.tabOrderPositions.Controls.Add(this.groupBox3);
+            this.tabOrderPositions.Controls.Add(this.dgvOrderPositions);
+            this.tabOrderPositions.Location = new System.Drawing.Point(4, 32);
+            this.tabOrderPositions.Name = "tabOrderPositions";
+            this.tabOrderPositions.Padding = new System.Windows.Forms.Padding(3);
+            this.tabOrderPositions.Size = new System.Drawing.Size(1476, 544);
+            this.tabOrderPositions.TabIndex = 3;
+            this.tabOrderPositions.Text = "Состав заказов";
+            this.tabOrderPositions.UseVisualStyleBackColor = true;
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.chbQuantityFilter);
-            this.groupBox3.Controls.Add(this.numQuantityFilter);
-            this.groupBox3.Controls.Add(this.cbStaffFilter);
+            this.groupBox3.Controls.Add(this.cbOrderCompositionStatusFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionStatusFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionQuantityFilter);
+            this.groupBox3.Controls.Add(this.numOrderCompositionQuantityFilter);
             this.groupBox3.Controls.Add(this.btnResetFilters);
             this.groupBox3.Controls.Add(this.btnFindOrders);
-            this.groupBox3.Controls.Add(this.numMaxPositionPrice);
-            this.groupBox3.Controls.Add(this.cbStatusFilter);
-            this.groupBox3.Controls.Add(this.cbMaterialFilter);
-            this.groupBox3.Controls.Add(this.cbAdditionalProductFilter);
-            this.groupBox3.Controls.Add(this.cbColorFilter);
-            this.groupBox3.Controls.Add(this.cbProductNameFilter);
-            this.groupBox3.Controls.Add(this.txtUserFIOFilter);
-            this.groupBox3.Controls.Add(this.txtOrderIdFilter);
-            this.groupBox3.Controls.Add(this.chbStatusFilter);
-            this.groupBox3.Controls.Add(this.chbProductNameFilter);
-            this.groupBox3.Controls.Add(this.chbUserFIOFilter);
-            this.groupBox3.Controls.Add(this.chbMaxPositionPriceFilter);
-            this.groupBox3.Controls.Add(this.chbFIOStaffFilter);
-            this.groupBox3.Controls.Add(this.chbMaterialFilter);
-            this.groupBox3.Controls.Add(this.chbAdditionalProductFilter);
-            this.groupBox3.Controls.Add(this.chbColorFilter);
+            this.groupBox3.Controls.Add(this.numOrderCompositionMaxPositionPrice);
+            this.groupBox3.Controls.Add(this.cbOrderCompositionMaterialFilter);
+            this.groupBox3.Controls.Add(this.cbOrderCompositionAdditionalProductFilter);
+            this.groupBox3.Controls.Add(this.cbOrderCompositionColorFilter);
+            this.groupBox3.Controls.Add(this.cbOrderCompositionProductNameFilter);
+            this.groupBox3.Controls.Add(this.txtOrderCompositionUserFIOFilter);
+            this.groupBox3.Controls.Add(this.txtOrderCompositionOrderIdFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionProductNameFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionUserFIOFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionMaxPositionPriceFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionMaterialFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionAdditionalProductFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionColorFilter);
             this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.chbOrderIdFilter);
-            this.groupBox3.Controls.Add(this.chbOrderDateFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionOrderIdFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionDateFilter);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
@@ -610,18 +827,55 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Фильтры поиска";
             // 
-            // cbStaffFilter
+            // cbOrderCompositionStatusFilter
             // 
-            this.cbStaffFilter.FormattingEnabled = true;
-            this.cbStaffFilter.Location = new System.Drawing.Point(1047, 127);
-            this.cbStaffFilter.Name = "cbStaffFilter";
-            this.cbStaffFilter.Size = new System.Drawing.Size(179, 31);
-            this.cbStaffFilter.TabIndex = 22;
+            this.cbOrderCompositionStatusFilter.FormattingEnabled = true;
+            this.cbOrderCompositionStatusFilter.Items.AddRange(new object[] {
+            "Создан",
+            "В производстве",
+            "Готов к выдаче",
+            "Завершен"});
+            this.cbOrderCompositionStatusFilter.Location = new System.Drawing.Point(866, 127);
+            this.cbOrderCompositionStatusFilter.Name = "cbOrderCompositionStatusFilter";
+            this.cbOrderCompositionStatusFilter.Size = new System.Drawing.Size(175, 31);
+            this.cbOrderCompositionStatusFilter.TabIndex = 26;
+            // 
+            // chbOrderCompositionStatusFilter
+            // 
+            this.chbOrderCompositionStatusFilter.AutoSize = true;
+            this.chbOrderCompositionStatusFilter.Location = new System.Drawing.Point(866, 101);
+            this.chbOrderCompositionStatusFilter.Name = "chbOrderCompositionStatusFilter";
+            this.chbOrderCompositionStatusFilter.Size = new System.Drawing.Size(80, 27);
+            this.chbOrderCompositionStatusFilter.TabIndex = 25;
+            this.chbOrderCompositionStatusFilter.Text = "Статус";
+            this.chbOrderCompositionStatusFilter.UseVisualStyleBackColor = true;
+            // 
+            // chbOrderCompositionQuantityFilter
+            // 
+            this.chbOrderCompositionQuantityFilter.AutoSize = true;
+            this.chbOrderCompositionQuantityFilter.Location = new System.Drawing.Point(653, 96);
+            this.chbOrderCompositionQuantityFilter.Name = "chbOrderCompositionQuantityFilter";
+            this.chbOrderCompositionQuantityFilter.Size = new System.Drawing.Size(118, 27);
+            this.chbOrderCompositionQuantityFilter.TabIndex = 24;
+            this.chbOrderCompositionQuantityFilter.Text = "Количество";
+            this.chbOrderCompositionQuantityFilter.UseVisualStyleBackColor = true;
+            // 
+            // numOrderCompositionQuantityFilter
+            // 
+            this.numOrderCompositionQuantityFilter.Location = new System.Drawing.Point(653, 128);
+            this.numOrderCompositionQuantityFilter.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numOrderCompositionQuantityFilter.Name = "numOrderCompositionQuantityFilter";
+            this.numOrderCompositionQuantityFilter.Size = new System.Drawing.Size(207, 30);
+            this.numOrderCompositionQuantityFilter.TabIndex = 23;
             // 
             // btnResetFilters
             // 
             this.btnResetFilters.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnResetFilters.Location = new System.Drawing.Point(1292, 17);
+            this.btnResetFilters.Location = new System.Drawing.Point(1050, 128);
             this.btnResetFilters.Name = "btnResetFilters";
             this.btnResetFilters.Size = new System.Drawing.Size(172, 30);
             this.btnResetFilters.TabIndex = 21;
@@ -638,158 +892,125 @@
             this.btnFindOrders.UseVisualStyleBackColor = true;
             this.btnFindOrders.Click += new System.EventHandler(this.btnFindOrders_Click);
             // 
-            // numMaxPositionPrice
+            // numOrderCompositionMaxPositionPrice
             // 
-            this.numMaxPositionPrice.Location = new System.Drawing.Point(472, 56);
-            this.numMaxPositionPrice.Name = "numMaxPositionPrice";
-            this.numMaxPositionPrice.Size = new System.Drawing.Size(207, 30);
-            this.numMaxPositionPrice.TabIndex = 19;
+            this.numOrderCompositionMaxPositionPrice.Location = new System.Drawing.Point(472, 56);
+            this.numOrderCompositionMaxPositionPrice.Name = "numOrderCompositionMaxPositionPrice";
+            this.numOrderCompositionMaxPositionPrice.Size = new System.Drawing.Size(207, 30);
+            this.numOrderCompositionMaxPositionPrice.TabIndex = 19;
             // 
-            // cbStatusFilter
+            // cbOrderCompositionMaterialFilter
             // 
-            this.cbStatusFilter.FormattingEnabled = true;
-            this.cbStatusFilter.Items.AddRange(new object[] {
-            "Создан",
-            "В производстве",
-            "Готов к выдаче",
-            "Завершен"});
-            this.cbStatusFilter.Location = new System.Drawing.Point(653, 128);
-            this.cbStatusFilter.Name = "cbStatusFilter";
-            this.cbStatusFilter.Size = new System.Drawing.Size(175, 31);
-            this.cbStatusFilter.TabIndex = 17;
+            this.cbOrderCompositionMaterialFilter.FormattingEnabled = true;
+            this.cbOrderCompositionMaterialFilter.Location = new System.Drawing.Point(472, 127);
+            this.cbOrderCompositionMaterialFilter.Name = "cbOrderCompositionMaterialFilter";
+            this.cbOrderCompositionMaterialFilter.Size = new System.Drawing.Size(175, 31);
+            this.cbOrderCompositionMaterialFilter.TabIndex = 16;
             // 
-            // cbMaterialFilter
+            // cbOrderCompositionAdditionalProductFilter
             // 
-            this.cbMaterialFilter.FormattingEnabled = true;
-            this.cbMaterialFilter.Location = new System.Drawing.Point(472, 127);
-            this.cbMaterialFilter.Name = "cbMaterialFilter";
-            this.cbMaterialFilter.Size = new System.Drawing.Size(175, 31);
-            this.cbMaterialFilter.TabIndex = 16;
+            this.cbOrderCompositionAdditionalProductFilter.FormattingEnabled = true;
+            this.cbOrderCompositionAdditionalProductFilter.Location = new System.Drawing.Point(291, 128);
+            this.cbOrderCompositionAdditionalProductFilter.Name = "cbOrderCompositionAdditionalProductFilter";
+            this.cbOrderCompositionAdditionalProductFilter.Size = new System.Drawing.Size(175, 31);
+            this.cbOrderCompositionAdditionalProductFilter.TabIndex = 15;
             // 
-            // cbAdditionalProductFilter
+            // cbOrderCompositionColorFilter
             // 
-            this.cbAdditionalProductFilter.FormattingEnabled = true;
-            this.cbAdditionalProductFilter.Location = new System.Drawing.Point(291, 128);
-            this.cbAdditionalProductFilter.Name = "cbAdditionalProductFilter";
-            this.cbAdditionalProductFilter.Size = new System.Drawing.Size(175, 31);
-            this.cbAdditionalProductFilter.TabIndex = 15;
+            this.cbOrderCompositionColorFilter.FormattingEnabled = true;
+            this.cbOrderCompositionColorFilter.Location = new System.Drawing.Point(866, 53);
+            this.cbOrderCompositionColorFilter.Name = "cbOrderCompositionColorFilter";
+            this.cbOrderCompositionColorFilter.Size = new System.Drawing.Size(175, 31);
+            this.cbOrderCompositionColorFilter.TabIndex = 14;
             // 
-            // cbColorFilter
+            // cbOrderCompositionProductNameFilter
             // 
-            this.cbColorFilter.FormattingEnabled = true;
-            this.cbColorFilter.Location = new System.Drawing.Point(866, 53);
-            this.cbColorFilter.Name = "cbColorFilter";
-            this.cbColorFilter.Size = new System.Drawing.Size(175, 31);
-            this.cbColorFilter.TabIndex = 14;
+            this.cbOrderCompositionProductNameFilter.FormattingEnabled = true;
+            this.cbOrderCompositionProductNameFilter.Location = new System.Drawing.Point(685, 54);
+            this.cbOrderCompositionProductNameFilter.Name = "cbOrderCompositionProductNameFilter";
+            this.cbOrderCompositionProductNameFilter.Size = new System.Drawing.Size(175, 31);
+            this.cbOrderCompositionProductNameFilter.TabIndex = 13;
             // 
-            // cbProductNameFilter
+            // txtOrderCompositionUserFIOFilter
             // 
-            this.cbProductNameFilter.FormattingEnabled = true;
-            this.cbProductNameFilter.Location = new System.Drawing.Point(685, 54);
-            this.cbProductNameFilter.Name = "cbProductNameFilter";
-            this.cbProductNameFilter.Size = new System.Drawing.Size(175, 31);
-            this.cbProductNameFilter.TabIndex = 13;
+            this.txtOrderCompositionUserFIOFilter.Location = new System.Drawing.Point(1047, 53);
+            this.txtOrderCompositionUserFIOFilter.Name = "txtOrderCompositionUserFIOFilter";
+            this.txtOrderCompositionUserFIOFilter.Size = new System.Drawing.Size(175, 30);
+            this.txtOrderCompositionUserFIOFilter.TabIndex = 12;
             // 
-            // txtUserFIOFilter
+            // txtOrderCompositionOrderIdFilter
             // 
-            this.txtUserFIOFilter.Location = new System.Drawing.Point(1047, 53);
-            this.txtUserFIOFilter.Name = "txtUserFIOFilter";
-            this.txtUserFIOFilter.Size = new System.Drawing.Size(175, 30);
-            this.txtUserFIOFilter.TabIndex = 12;
+            this.txtOrderCompositionOrderIdFilter.Location = new System.Drawing.Point(291, 56);
+            this.txtOrderCompositionOrderIdFilter.Name = "txtOrderCompositionOrderIdFilter";
+            this.txtOrderCompositionOrderIdFilter.Size = new System.Drawing.Size(175, 30);
+            this.txtOrderCompositionOrderIdFilter.TabIndex = 11;
             // 
-            // txtOrderIdFilter
+            // chbOrderCompositionProductNameFilter
             // 
-            this.txtOrderIdFilter.Location = new System.Drawing.Point(291, 56);
-            this.txtOrderIdFilter.Name = "txtOrderIdFilter";
-            this.txtOrderIdFilter.Size = new System.Drawing.Size(175, 30);
-            this.txtOrderIdFilter.TabIndex = 11;
+            this.chbOrderCompositionProductNameFilter.AutoSize = true;
+            this.chbOrderCompositionProductNameFilter.Location = new System.Drawing.Point(685, 29);
+            this.chbOrderCompositionProductNameFilter.Name = "chbOrderCompositionProductNameFilter";
+            this.chbOrderCompositionProductNameFilter.Size = new System.Drawing.Size(154, 27);
+            this.chbOrderCompositionProductNameFilter.TabIndex = 9;
+            this.chbOrderCompositionProductNameFilter.Text = "Название товара";
+            this.chbOrderCompositionProductNameFilter.UseVisualStyleBackColor = true;
             // 
-            // chbStatusFilter
+            // chbOrderCompositionUserFIOFilter
             // 
-            this.chbStatusFilter.AutoSize = true;
-            this.chbStatusFilter.Location = new System.Drawing.Point(653, 97);
-            this.chbStatusFilter.Name = "chbStatusFilter";
-            this.chbStatusFilter.Size = new System.Drawing.Size(80, 27);
-            this.chbStatusFilter.TabIndex = 10;
-            this.chbStatusFilter.Text = "Статус";
-            this.chbStatusFilter.UseVisualStyleBackColor = true;
+            this.chbOrderCompositionUserFIOFilter.AutoSize = true;
+            this.chbOrderCompositionUserFIOFilter.Location = new System.Drawing.Point(1047, 20);
+            this.chbOrderCompositionUserFIOFilter.Name = "chbOrderCompositionUserFIOFilter";
+            this.chbOrderCompositionUserFIOFilter.Size = new System.Drawing.Size(142, 27);
+            this.chbOrderCompositionUserFIOFilter.TabIndex = 8;
+            this.chbOrderCompositionUserFIOFilter.Text = "ФИО заказчика";
+            this.chbOrderCompositionUserFIOFilter.UseVisualStyleBackColor = true;
             // 
-            // chbProductNameFilter
+            // chbOrderCompositionMaxPositionPriceFilter
             // 
-            this.chbProductNameFilter.AutoSize = true;
-            this.chbProductNameFilter.Location = new System.Drawing.Point(685, 29);
-            this.chbProductNameFilter.Name = "chbProductNameFilter";
-            this.chbProductNameFilter.Size = new System.Drawing.Size(154, 27);
-            this.chbProductNameFilter.TabIndex = 9;
-            this.chbProductNameFilter.Text = "Название товара";
-            this.chbProductNameFilter.UseVisualStyleBackColor = true;
+            this.chbOrderCompositionMaxPositionPriceFilter.AutoSize = true;
+            this.chbOrderCompositionMaxPositionPriceFilter.Location = new System.Drawing.Point(469, 29);
+            this.chbOrderCompositionMaxPositionPriceFilter.Name = "chbOrderCompositionMaxPositionPriceFilter";
+            this.chbOrderCompositionMaxPositionPriceFilter.Size = new System.Drawing.Size(207, 27);
+            this.chbOrderCompositionMaxPositionPriceFilter.TabIndex = 7;
+            this.chbOrderCompositionMaxPositionPriceFilter.Text = "Макс. цена за позицию";
+            this.chbOrderCompositionMaxPositionPriceFilter.UseVisualStyleBackColor = true;
             // 
-            // chbUserFIOFilter
+            // chbOrderCompositionMaterialFilter
             // 
-            this.chbUserFIOFilter.AutoSize = true;
-            this.chbUserFIOFilter.Location = new System.Drawing.Point(1047, 20);
-            this.chbUserFIOFilter.Name = "chbUserFIOFilter";
-            this.chbUserFIOFilter.Size = new System.Drawing.Size(142, 27);
-            this.chbUserFIOFilter.TabIndex = 8;
-            this.chbUserFIOFilter.Text = "ФИО заказчика";
-            this.chbUserFIOFilter.UseVisualStyleBackColor = true;
+            this.chbOrderCompositionMaterialFilter.AutoSize = true;
+            this.chbOrderCompositionMaterialFilter.Location = new System.Drawing.Point(472, 97);
+            this.chbOrderCompositionMaterialFilter.Name = "chbOrderCompositionMaterialFilter";
+            this.chbOrderCompositionMaterialFilter.Size = new System.Drawing.Size(105, 27);
+            this.chbOrderCompositionMaterialFilter.TabIndex = 5;
+            this.chbOrderCompositionMaterialFilter.Text = "Материал";
+            this.chbOrderCompositionMaterialFilter.UseVisualStyleBackColor = true;
             // 
-            // chbMaxPositionPriceFilter
+            // chbOrderCompositionAdditionalProductFilter
             // 
-            this.chbMaxPositionPriceFilter.AutoSize = true;
-            this.chbMaxPositionPriceFilter.Location = new System.Drawing.Point(469, 29);
-            this.chbMaxPositionPriceFilter.Name = "chbMaxPositionPriceFilter";
-            this.chbMaxPositionPriceFilter.Size = new System.Drawing.Size(207, 27);
-            this.chbMaxPositionPriceFilter.TabIndex = 7;
-            this.chbMaxPositionPriceFilter.Text = "Макс. цена за позицию";
-            this.chbMaxPositionPriceFilter.UseVisualStyleBackColor = true;
+            this.chbOrderCompositionAdditionalProductFilter.AutoSize = true;
+            this.chbOrderCompositionAdditionalProductFilter.Location = new System.Drawing.Point(291, 95);
+            this.chbOrderCompositionAdditionalProductFilter.Name = "chbOrderCompositionAdditionalProductFilter";
+            this.chbOrderCompositionAdditionalProductFilter.Size = new System.Drawing.Size(121, 27);
+            this.chbOrderCompositionAdditionalProductFilter.TabIndex = 4;
+            this.chbOrderCompositionAdditionalProductFilter.Text = "Доп. услуга";
+            this.chbOrderCompositionAdditionalProductFilter.UseVisualStyleBackColor = true;
             // 
-            // chbFIOStaffFilter
+            // chbOrderCompositionColorFilter
             // 
-            this.chbFIOStaffFilter.AutoSize = true;
-            this.chbFIOStaffFilter.Location = new System.Drawing.Point(1047, 97);
-            this.chbFIOStaffFilter.Name = "chbFIOStaffFilter";
-            this.chbFIOStaffFilter.Size = new System.Drawing.Size(156, 27);
-            this.chbFIOStaffFilter.TabIndex = 6;
-            this.chbFIOStaffFilter.Text = "ФИО сотрудника";
-            this.chbFIOStaffFilter.UseVisualStyleBackColor = true;
-            // 
-            // chbMaterialFilter
-            // 
-            this.chbMaterialFilter.AutoSize = true;
-            this.chbMaterialFilter.Location = new System.Drawing.Point(472, 97);
-            this.chbMaterialFilter.Name = "chbMaterialFilter";
-            this.chbMaterialFilter.Size = new System.Drawing.Size(105, 27);
-            this.chbMaterialFilter.TabIndex = 5;
-            this.chbMaterialFilter.Text = "Материал";
-            this.chbMaterialFilter.UseVisualStyleBackColor = true;
-            // 
-            // chbAdditionalProductFilter
-            // 
-            this.chbAdditionalProductFilter.AutoSize = true;
-            this.chbAdditionalProductFilter.Location = new System.Drawing.Point(291, 95);
-            this.chbAdditionalProductFilter.Name = "chbAdditionalProductFilter";
-            this.chbAdditionalProductFilter.Size = new System.Drawing.Size(121, 27);
-            this.chbAdditionalProductFilter.TabIndex = 4;
-            this.chbAdditionalProductFilter.Text = "Доп. услуга";
-            this.chbAdditionalProductFilter.UseVisualStyleBackColor = true;
-            // 
-            // chbColorFilter
-            // 
-            this.chbColorFilter.AutoSize = true;
-            this.chbColorFilter.Location = new System.Drawing.Point(866, 29);
-            this.chbColorFilter.Name = "chbColorFilter";
-            this.chbColorFilter.Size = new System.Drawing.Size(107, 27);
-            this.chbColorFilter.TabIndex = 3;
-            this.chbColorFilter.Text = "Цветность";
-            this.chbColorFilter.UseVisualStyleBackColor = true;
+            this.chbOrderCompositionColorFilter.AutoSize = true;
+            this.chbOrderCompositionColorFilter.Location = new System.Drawing.Point(866, 29);
+            this.chbOrderCompositionColorFilter.Name = "chbOrderCompositionColorFilter";
+            this.chbOrderCompositionColorFilter.Size = new System.Drawing.Size(107, 27);
+            this.chbOrderCompositionColorFilter.TabIndex = 3;
+            this.chbOrderCompositionColorFilter.Text = "Цветность";
+            this.chbOrderCompositionColorFilter.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.dateOrderToFilter);
-            this.groupBox4.Controls.Add(this.dateOrderFromFilter);
+            this.groupBox4.Controls.Add(this.dateOrderPositionToFilter);
+            this.groupBox4.Controls.Add(this.dateOrderPositionFromFilter);
             this.groupBox4.Location = new System.Drawing.Point(6, 63);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(279, 106);
@@ -814,55 +1035,54 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "От";
             // 
-            // dateOrderToFilter
+            // dateOrderPositionToFilter
             // 
-            this.dateOrderToFilter.Location = new System.Drawing.Point(53, 65);
-            this.dateOrderToFilter.Name = "dateOrderToFilter";
-            this.dateOrderToFilter.Size = new System.Drawing.Size(220, 30);
-            this.dateOrderToFilter.TabIndex = 1;
+            this.dateOrderPositionToFilter.Location = new System.Drawing.Point(53, 65);
+            this.dateOrderPositionToFilter.Name = "dateOrderPositionToFilter";
+            this.dateOrderPositionToFilter.Size = new System.Drawing.Size(220, 30);
+            this.dateOrderPositionToFilter.TabIndex = 1;
             // 
-            // dateOrderFromFilter
+            // dateOrderPositionFromFilter
             // 
-            this.dateOrderFromFilter.Location = new System.Drawing.Point(53, 29);
-            this.dateOrderFromFilter.Name = "dateOrderFromFilter";
-            this.dateOrderFromFilter.Size = new System.Drawing.Size(220, 30);
-            this.dateOrderFromFilter.TabIndex = 0;
+            this.dateOrderPositionFromFilter.Location = new System.Drawing.Point(53, 29);
+            this.dateOrderPositionFromFilter.Name = "dateOrderPositionFromFilter";
+            this.dateOrderPositionFromFilter.Size = new System.Drawing.Size(220, 30);
+            this.dateOrderPositionFromFilter.TabIndex = 0;
             // 
-            // chbOrderIdFilter
+            // chbOrderCompositionOrderIdFilter
             // 
-            this.chbOrderIdFilter.AutoSize = true;
-            this.chbOrderIdFilter.Location = new System.Drawing.Point(291, 29);
-            this.chbOrderIdFilter.Name = "chbOrderIdFilter";
-            this.chbOrderIdFilter.Size = new System.Drawing.Size(94, 27);
-            this.chbOrderIdFilter.TabIndex = 1;
-            this.chbOrderIdFilter.Text = "id заказа";
-            this.chbOrderIdFilter.UseVisualStyleBackColor = true;
+            this.chbOrderCompositionOrderIdFilter.AutoSize = true;
+            this.chbOrderCompositionOrderIdFilter.Location = new System.Drawing.Point(291, 29);
+            this.chbOrderCompositionOrderIdFilter.Name = "chbOrderCompositionOrderIdFilter";
+            this.chbOrderCompositionOrderIdFilter.Size = new System.Drawing.Size(94, 27);
+            this.chbOrderCompositionOrderIdFilter.TabIndex = 1;
+            this.chbOrderCompositionOrderIdFilter.Text = "id заказа";
+            this.chbOrderCompositionOrderIdFilter.UseVisualStyleBackColor = true;
             // 
-            // chbOrderDateFilter
+            // chbOrderCompositionDateFilter
             // 
-            this.chbOrderDateFilter.AutoSize = true;
-            this.chbOrderDateFilter.Location = new System.Drawing.Point(6, 29);
-            this.chbOrderDateFilter.Name = "chbOrderDateFilter";
-            this.chbOrderDateFilter.Size = new System.Drawing.Size(116, 27);
-            this.chbOrderDateFilter.TabIndex = 0;
-            this.chbOrderDateFilter.Text = "Дата заказа";
-            this.chbOrderDateFilter.UseVisualStyleBackColor = true;
+            this.chbOrderCompositionDateFilter.AutoSize = true;
+            this.chbOrderCompositionDateFilter.Location = new System.Drawing.Point(6, 29);
+            this.chbOrderCompositionDateFilter.Name = "chbOrderCompositionDateFilter";
+            this.chbOrderCompositionDateFilter.Size = new System.Drawing.Size(116, 27);
+            this.chbOrderCompositionDateFilter.TabIndex = 0;
+            this.chbOrderCompositionDateFilter.Text = "Дата заказа";
+            this.chbOrderCompositionDateFilter.UseVisualStyleBackColor = true;
             // 
-            // dgvOrders
+            // dgvOrderPositions
             // 
-            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvOrders.Location = new System.Drawing.Point(3, 184);
-            this.dgvOrders.Name = "dgvOrders";
-            this.dgvOrders.Size = new System.Drawing.Size(1470, 357);
-            this.dgvOrders.TabIndex = 0;
-            this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellContentClick);
+            this.dgvOrderPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderPositions.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvOrderPositions.Location = new System.Drawing.Point(3, 184);
+            this.dgvOrderPositions.Name = "dgvOrderPositions";
+            this.dgvOrderPositions.Size = new System.Drawing.Size(1470, 357);
+            this.dgvOrderPositions.TabIndex = 0;
             // 
             // tabClients
             // 
             this.tabClients.Location = new System.Drawing.Point(4, 32);
             this.tabClients.Name = "tabClients";
-            this.tabClients.Size = new System.Drawing.Size(1323, 544);
+            this.tabClients.Size = new System.Drawing.Size(1476, 544);
             this.tabClients.TabIndex = 4;
             this.tabClients.Text = "Клиенты";
             this.tabClients.UseVisualStyleBackColor = true;
@@ -871,7 +1091,7 @@
             // 
             this.tabStaff.Location = new System.Drawing.Point(4, 32);
             this.tabStaff.Name = "tabStaff";
-            this.tabStaff.Size = new System.Drawing.Size(1323, 544);
+            this.tabStaff.Size = new System.Drawing.Size(1476, 544);
             this.tabStaff.TabIndex = 5;
             this.tabStaff.Text = "Сотрудники";
             this.tabStaff.UseVisualStyleBackColor = true;
@@ -881,27 +1101,32 @@
             this.tabReports.Location = new System.Drawing.Point(4, 32);
             this.tabReports.Name = "tabReports";
             this.tabReports.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReports.Size = new System.Drawing.Size(1323, 544);
+            this.tabReports.Size = new System.Drawing.Size(1476, 544);
             this.tabReports.TabIndex = 7;
             this.tabReports.Text = "Отчеты";
             this.tabReports.UseVisualStyleBackColor = true;
             // 
-            // numQuantityFilter
+            // numOrderFilterMaxPrice
             // 
-            this.numQuantityFilter.Location = new System.Drawing.Point(834, 129);
-            this.numQuantityFilter.Name = "numQuantityFilter";
-            this.numQuantityFilter.Size = new System.Drawing.Size(207, 30);
-            this.numQuantityFilter.TabIndex = 23;
+            this.numOrderFilterMaxPrice.Location = new System.Drawing.Point(1019, 57);
+            this.numOrderFilterMaxPrice.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numOrderFilterMaxPrice.Name = "numOrderFilterMaxPrice";
+            this.numOrderFilterMaxPrice.Size = new System.Drawing.Size(232, 30);
+            this.numOrderFilterMaxPrice.TabIndex = 23;
             // 
-            // chbQuantityFilter
+            // chbOrderFilterMaxPrice
             // 
-            this.chbQuantityFilter.AutoSize = true;
-            this.chbQuantityFilter.Location = new System.Drawing.Point(834, 97);
-            this.chbQuantityFilter.Name = "chbQuantityFilter";
-            this.chbQuantityFilter.Size = new System.Drawing.Size(118, 27);
-            this.chbQuantityFilter.TabIndex = 24;
-            this.chbQuantityFilter.Text = "Количество";
-            this.chbQuantityFilter.UseVisualStyleBackColor = true;
+            this.chbOrderFilterMaxPrice.AutoSize = true;
+            this.chbOrderFilterMaxPrice.Location = new System.Drawing.Point(1019, 29);
+            this.chbOrderFilterMaxPrice.Name = "chbOrderFilterMaxPrice";
+            this.chbOrderFilterMaxPrice.Size = new System.Drawing.Size(232, 27);
+            this.chbOrderFilterMaxPrice.TabIndex = 24;
+            this.chbOrderFilterMaxPrice.Text = "Максимальная цена заказа";
+            this.chbOrderFilterMaxPrice.UseVisualStyleBackColor = true;
             // 
             // FMain
             // 
@@ -936,13 +1161,20 @@
             this.tabCart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.tabOrders.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabOrderPositions.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaxPositionPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrderCompositionQuantityFilter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrderCompositionMaxPositionPrice)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantityFilter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderPositions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrderFilterMaxPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -955,7 +1187,7 @@
         private System.Windows.Forms.TabControl TabControl1;
         private System.Windows.Forms.TabPage tabProducts;
         private System.Windows.Forms.TabPage tabCart;
-        private System.Windows.Forms.TabPage tabOrders;
+        private System.Windows.Forms.TabPage tabOrderPositions;
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
@@ -992,36 +1224,55 @@
         public System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dgvOrders;
-        private System.Windows.Forms.CheckBox chbOrderDateFilter;
+        private System.Windows.Forms.DataGridView dgvOrderPositions;
+        private System.Windows.Forms.CheckBox chbOrderCompositionDateFilter;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DateTimePicker dateOrderToFilter;
-        private System.Windows.Forms.DateTimePicker dateOrderFromFilter;
-        private System.Windows.Forms.CheckBox chbOrderIdFilter;
+        private System.Windows.Forms.DateTimePicker dateOrderPositionToFilter;
+        private System.Windows.Forms.DateTimePicker dateOrderPositionFromFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionOrderIdFilter;
         private System.Windows.Forms.TabPage tabReports;
-        private System.Windows.Forms.CheckBox chbStatusFilter;
-        private System.Windows.Forms.CheckBox chbProductNameFilter;
-        private System.Windows.Forms.CheckBox chbUserFIOFilter;
-        private System.Windows.Forms.CheckBox chbMaxPositionPriceFilter;
-        private System.Windows.Forms.CheckBox chbFIOStaffFilter;
-        private System.Windows.Forms.CheckBox chbMaterialFilter;
-        private System.Windows.Forms.CheckBox chbAdditionalProductFilter;
-        private System.Windows.Forms.CheckBox chbColorFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionProductNameFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionUserFIOFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionMaxPositionPriceFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionMaterialFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionAdditionalProductFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionColorFilter;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtOrderIdFilter;
-        private System.Windows.Forms.TextBox txtUserFIOFilter;
-        private System.Windows.Forms.ComboBox cbAdditionalProductFilter;
-        private System.Windows.Forms.ComboBox cbColorFilter;
-        private System.Windows.Forms.ComboBox cbProductNameFilter;
-        private System.Windows.Forms.ComboBox cbMaterialFilter;
+        private System.Windows.Forms.TextBox txtOrderCompositionOrderIdFilter;
+        private System.Windows.Forms.TextBox txtOrderCompositionUserFIOFilter;
+        private System.Windows.Forms.ComboBox cbOrderCompositionAdditionalProductFilter;
+        private System.Windows.Forms.ComboBox cbOrderCompositionColorFilter;
+        private System.Windows.Forms.ComboBox cbOrderCompositionProductNameFilter;
+        private System.Windows.Forms.ComboBox cbOrderCompositionMaterialFilter;
         private System.Windows.Forms.Button btnFindOrders;
-        private System.Windows.Forms.NumericUpDown numMaxPositionPrice;
-        private System.Windows.Forms.ComboBox cbStatusFilter;
+        private System.Windows.Forms.NumericUpDown numOrderCompositionMaxPositionPrice;
         private System.Windows.Forms.Button btnResetFilters;
-        private System.Windows.Forms.ComboBox cbStaffFilter;
-        private System.Windows.Forms.NumericUpDown numQuantityFilter;
-        private System.Windows.Forms.CheckBox chbQuantityFilter;
+        private System.Windows.Forms.NumericUpDown numOrderCompositionQuantityFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionQuantityFilter;
+        private System.Windows.Forms.TabPage tabOrders;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbOrderFilterStaffFIO;
+        private System.Windows.Forms.Button btnResetOrderFilters;
+        private System.Windows.Forms.Button btnSearchFilteredOrders;
+        private System.Windows.Forms.ComboBox cbOrderFilterStatus;
+        private System.Windows.Forms.TextBox txtOrderFilterUserFIO;
+        private System.Windows.Forms.TextBox txtOrderFilterOrderId;
+        private System.Windows.Forms.CheckBox chbOrderFilterStatus;
+        private System.Windows.Forms.CheckBox chbOrderFilterUserFIO;
+        private System.Windows.Forms.CheckBox chbOrderFilterStaffFIO;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dateOrderTo;
+        private System.Windows.Forms.DateTimePicker dateOrderFrom;
+        private System.Windows.Forms.CheckBox chbOrderFilterOrderId;
+        private System.Windows.Forms.CheckBox chbOrderFilterDate;
+        private System.Windows.Forms.DataGridView dgvOrders;
+        private System.Windows.Forms.ComboBox cbOrderCompositionStatusFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionStatusFilter;
+        private System.Windows.Forms.CheckBox chbOrderFilterMaxPrice;
+        private System.Windows.Forms.NumericUpDown numOrderFilterMaxPrice;
     }
 }
 

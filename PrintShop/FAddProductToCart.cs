@@ -40,7 +40,6 @@ namespace PrintShop
         {
             txtProductName.Text = productName;
             txtCategory.Text = categoryName;
-            rtxtCharacter.Text = character;
             txtProductPricePerEach.Text = productPricePerEach.ToString();
             cbAdditionalProduct.Text = "Нет";
             classAdo.ComboBoxBind("ViewAdditionalProducts", cbAdditionalProduct, "Название", "ID");
