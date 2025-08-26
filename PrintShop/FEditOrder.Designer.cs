@@ -152,6 +152,7 @@
             this.btnSaveOrder.TabIndex = 88;
             this.btnSaveOrder.Text = "Сохранить изменения";
             this.btnSaveOrder.UseVisualStyleBackColor = true;
+            this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
             // 
             // label1
             // 

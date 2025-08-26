@@ -17,7 +17,7 @@ namespace PrintShop
         ClassAdo classAdo = new ClassAdo();
         int OrderId;
         string OrderUserFIO, OrderTotalPrice,
-            OrderStaffFIO, OrderStatus;
+               OrderStaffFIO, OrderStatus;
         DateTime OrderDateStart, OrderDateEnd;
         public FEditOrder(int orderId, string orderPositionUserFIO,  string orderTotalPrice, DateTime orderPositionDateStart, DateTime orderPositionDateEnd, string orderPositionStaffFIO, string orderPositionStatus)
         {
@@ -41,6 +41,21 @@ namespace PrintShop
             cbOrderStatus.Text = OrderStatus;
 
             classAdo.ComboBoxBind("ViewStaffFIO", cbStaffFIO, "FIO", "id_staff");
+        }
+
+        private void btnSaveOrder_Click(object sender, EventArgs e)
+        {
+            classAdo.StProcExec("UpdateOrder");
+            SqlCommand cmd = classAdo.StProcExec("UpdateOrder");
+
+            cmd.Parameters.AddWithValue("@orderId", OrderId);
+            cmd.Parameters.AddWithValue("@orderDateEnd", dateOrderEnd.Value);
+            cmd.Parameters.AddWithValue("@id_staff", cbStaffFIO.SelectedValue);
+            cmd.Parameters.AddWithValue("@status", cbOrderStatus.Text);
+
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show("Изменения сохранены!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
