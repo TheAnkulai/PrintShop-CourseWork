@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -74,6 +74,8 @@
             this.tabOrders = new System.Windows.Forms.TabPage();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chbOrderFilterMaxPrice = new System.Windows.Forms.CheckBox();
+            this.numOrderFilterMaxPrice = new System.Windows.Forms.NumericUpDown();
             this.cbOrderFilterStaffFIO = new System.Windows.Forms.ComboBox();
             this.btnResetOrderFilters = new System.Windows.Forms.Button();
             this.btnSearchFilteredOrders = new System.Windows.Forms.Button();
@@ -96,7 +98,7 @@
             this.chbOrderCompositionStatusFilter = new System.Windows.Forms.CheckBox();
             this.chbOrderCompositionQuantityFilter = new System.Windows.Forms.CheckBox();
             this.numOrderCompositionQuantityFilter = new System.Windows.Forms.NumericUpDown();
-            this.btnResetFilters = new System.Windows.Forms.Button();
+            this.btnResetOrderCompositionFilters = new System.Windows.Forms.Button();
             this.btnFindOrders = new System.Windows.Forms.Button();
             this.numOrderCompositionMaxPositionPrice = new System.Windows.Forms.NumericUpDown();
             this.cbOrderCompositionMaterialFilter = new System.Windows.Forms.ComboBox();
@@ -116,14 +118,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.dateOrderPositionToFilter = new System.Windows.Forms.DateTimePicker();
             this.dateOrderPositionFromFilter = new System.Windows.Forms.DateTimePicker();
-            this.chbOrderCompositionOrderIdFilter = new System.Windows.Forms.CheckBox();
+            this.chbOrderCompositionFilterOrderId = new System.Windows.Forms.CheckBox();
             this.chbOrderCompositionDateFilter = new System.Windows.Forms.CheckBox();
             this.dgvOrderPositions = new System.Windows.Forms.DataGridView();
             this.tabClients = new System.Windows.Forms.TabPage();
             this.tabStaff = new System.Windows.Forms.TabPage();
             this.tabReports = new System.Windows.Forms.TabPage();
-            this.numOrderFilterMaxPrice = new System.Windows.Forms.NumericUpDown();
-            this.chbOrderFilterMaxPrice = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TabControl1.SuspendLayout();
@@ -142,6 +142,7 @@
             this.tabOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrderFilterMaxPrice)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabOrderPositions.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -149,7 +150,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numOrderCompositionMaxPositionPrice)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderPositions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numOrderFilterMaxPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -350,19 +350,19 @@
             this.dgvProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvProducts.Location = new System.Drawing.Point(3, 124);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowHeadersWidth = 70;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducts.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducts.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProducts.Size = new System.Drawing.Size(1006, 417);
             this.dgvProducts.TabIndex = 2;
             this.dgvProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellContentClick);
@@ -583,8 +583,8 @@
             this.dgvCart.Location = new System.Drawing.Point(3, 3);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersWidth = 70;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCart.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCart.Size = new System.Drawing.Size(1047, 538);
             this.dgvCart.TabIndex = 0;
             this.dgvCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellContentClick);
@@ -634,6 +634,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фильтры поиска";
             // 
+            // chbOrderFilterMaxPrice
+            // 
+            this.chbOrderFilterMaxPrice.AutoSize = true;
+            this.chbOrderFilterMaxPrice.Location = new System.Drawing.Point(1019, 29);
+            this.chbOrderFilterMaxPrice.Name = "chbOrderFilterMaxPrice";
+            this.chbOrderFilterMaxPrice.Size = new System.Drawing.Size(232, 27);
+            this.chbOrderFilterMaxPrice.TabIndex = 24;
+            this.chbOrderFilterMaxPrice.Text = "Максимальная цена заказа";
+            this.chbOrderFilterMaxPrice.UseVisualStyleBackColor = true;
+            // 
+            // numOrderFilterMaxPrice
+            // 
+            this.numOrderFilterMaxPrice.Location = new System.Drawing.Point(1019, 57);
+            this.numOrderFilterMaxPrice.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numOrderFilterMaxPrice.Name = "numOrderFilterMaxPrice";
+            this.numOrderFilterMaxPrice.Size = new System.Drawing.Size(232, 30);
+            this.numOrderFilterMaxPrice.TabIndex = 23;
+            // 
             // cbOrderFilterStaffFIO
             // 
             this.cbOrderFilterStaffFIO.FormattingEnabled = true;
@@ -651,6 +673,7 @@
             this.btnResetOrderFilters.TabIndex = 21;
             this.btnResetOrderFilters.Text = "сбросить фильтры";
             this.btnResetOrderFilters.UseVisualStyleBackColor = true;
+            this.btnResetOrderFilters.Click += new System.EventHandler(this.btnResetOrderFilters_Click);
             // 
             // btnSearchFilteredOrders
             // 
@@ -688,6 +711,7 @@
             this.txtOrderFilterOrderId.Name = "txtOrderFilterOrderId";
             this.txtOrderFilterOrderId.Size = new System.Drawing.Size(175, 30);
             this.txtOrderFilterOrderId.TabIndex = 11;
+            this.txtOrderFilterOrderId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterOrderId_KeyPress);
             // 
             // chbOrderFilterStatus
             // 
@@ -801,7 +825,7 @@
             this.groupBox3.Controls.Add(this.chbOrderCompositionStatusFilter);
             this.groupBox3.Controls.Add(this.chbOrderCompositionQuantityFilter);
             this.groupBox3.Controls.Add(this.numOrderCompositionQuantityFilter);
-            this.groupBox3.Controls.Add(this.btnResetFilters);
+            this.groupBox3.Controls.Add(this.btnResetOrderCompositionFilters);
             this.groupBox3.Controls.Add(this.btnFindOrders);
             this.groupBox3.Controls.Add(this.numOrderCompositionMaxPositionPrice);
             this.groupBox3.Controls.Add(this.cbOrderCompositionMaterialFilter);
@@ -817,7 +841,7 @@
             this.groupBox3.Controls.Add(this.chbOrderCompositionAdditionalProductFilter);
             this.groupBox3.Controls.Add(this.chbOrderCompositionColorFilter);
             this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.chbOrderCompositionOrderIdFilter);
+            this.groupBox3.Controls.Add(this.chbOrderCompositionFilterOrderId);
             this.groupBox3.Controls.Add(this.chbOrderCompositionDateFilter);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
@@ -872,15 +896,16 @@
             this.numOrderCompositionQuantityFilter.Size = new System.Drawing.Size(207, 30);
             this.numOrderCompositionQuantityFilter.TabIndex = 23;
             // 
-            // btnResetFilters
+            // btnResetOrderCompositionFilters
             // 
-            this.btnResetFilters.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnResetFilters.Location = new System.Drawing.Point(1050, 128);
-            this.btnResetFilters.Name = "btnResetFilters";
-            this.btnResetFilters.Size = new System.Drawing.Size(172, 30);
-            this.btnResetFilters.TabIndex = 21;
-            this.btnResetFilters.Text = "сбросить фильтры";
-            this.btnResetFilters.UseVisualStyleBackColor = true;
+            this.btnResetOrderCompositionFilters.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnResetOrderCompositionFilters.Location = new System.Drawing.Point(1050, 128);
+            this.btnResetOrderCompositionFilters.Name = "btnResetOrderCompositionFilters";
+            this.btnResetOrderCompositionFilters.Size = new System.Drawing.Size(172, 30);
+            this.btnResetOrderCompositionFilters.TabIndex = 21;
+            this.btnResetOrderCompositionFilters.Text = "сбросить фильтры";
+            this.btnResetOrderCompositionFilters.UseVisualStyleBackColor = true;
+            this.btnResetOrderCompositionFilters.Click += new System.EventHandler(this.btnResetOrderCompositionFilters_Click);
             // 
             // btnFindOrders
             // 
@@ -944,6 +969,7 @@
             this.txtOrderCompositionOrderIdFilter.Name = "txtOrderCompositionOrderIdFilter";
             this.txtOrderCompositionOrderIdFilter.Size = new System.Drawing.Size(175, 30);
             this.txtOrderCompositionOrderIdFilter.TabIndex = 11;
+            this.txtOrderCompositionOrderIdFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterOrderId_KeyPress);
             // 
             // chbOrderCompositionProductNameFilter
             // 
@@ -1049,15 +1075,15 @@
             this.dateOrderPositionFromFilter.Size = new System.Drawing.Size(220, 30);
             this.dateOrderPositionFromFilter.TabIndex = 0;
             // 
-            // chbOrderCompositionOrderIdFilter
+            // chbOrderCompositionFilterOrderId
             // 
-            this.chbOrderCompositionOrderIdFilter.AutoSize = true;
-            this.chbOrderCompositionOrderIdFilter.Location = new System.Drawing.Point(291, 29);
-            this.chbOrderCompositionOrderIdFilter.Name = "chbOrderCompositionOrderIdFilter";
-            this.chbOrderCompositionOrderIdFilter.Size = new System.Drawing.Size(94, 27);
-            this.chbOrderCompositionOrderIdFilter.TabIndex = 1;
-            this.chbOrderCompositionOrderIdFilter.Text = "id заказа";
-            this.chbOrderCompositionOrderIdFilter.UseVisualStyleBackColor = true;
+            this.chbOrderCompositionFilterOrderId.AutoSize = true;
+            this.chbOrderCompositionFilterOrderId.Location = new System.Drawing.Point(291, 29);
+            this.chbOrderCompositionFilterOrderId.Name = "chbOrderCompositionFilterOrderId";
+            this.chbOrderCompositionFilterOrderId.Size = new System.Drawing.Size(94, 27);
+            this.chbOrderCompositionFilterOrderId.TabIndex = 1;
+            this.chbOrderCompositionFilterOrderId.Text = "id заказа";
+            this.chbOrderCompositionFilterOrderId.UseVisualStyleBackColor = true;
             // 
             // chbOrderCompositionDateFilter
             // 
@@ -1106,28 +1132,6 @@
             this.tabReports.Text = "Отчеты";
             this.tabReports.UseVisualStyleBackColor = true;
             // 
-            // numOrderFilterMaxPrice
-            // 
-            this.numOrderFilterMaxPrice.Location = new System.Drawing.Point(1019, 57);
-            this.numOrderFilterMaxPrice.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.numOrderFilterMaxPrice.Name = "numOrderFilterMaxPrice";
-            this.numOrderFilterMaxPrice.Size = new System.Drawing.Size(232, 30);
-            this.numOrderFilterMaxPrice.TabIndex = 23;
-            // 
-            // chbOrderFilterMaxPrice
-            // 
-            this.chbOrderFilterMaxPrice.AutoSize = true;
-            this.chbOrderFilterMaxPrice.Location = new System.Drawing.Point(1019, 29);
-            this.chbOrderFilterMaxPrice.Name = "chbOrderFilterMaxPrice";
-            this.chbOrderFilterMaxPrice.Size = new System.Drawing.Size(232, 27);
-            this.chbOrderFilterMaxPrice.TabIndex = 24;
-            this.chbOrderFilterMaxPrice.Text = "Максимальная цена заказа";
-            this.chbOrderFilterMaxPrice.UseVisualStyleBackColor = true;
-            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1164,6 +1168,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numOrderFilterMaxPrice)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabOrderPositions.ResumeLayout(false);
@@ -1174,7 +1179,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderPositions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numOrderFilterMaxPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1229,7 +1233,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DateTimePicker dateOrderPositionToFilter;
         private System.Windows.Forms.DateTimePicker dateOrderPositionFromFilter;
-        private System.Windows.Forms.CheckBox chbOrderCompositionOrderIdFilter;
+        private System.Windows.Forms.CheckBox chbOrderCompositionFilterOrderId;
         private System.Windows.Forms.TabPage tabReports;
         private System.Windows.Forms.CheckBox chbOrderCompositionProductNameFilter;
         private System.Windows.Forms.CheckBox chbOrderCompositionUserFIOFilter;
@@ -1247,7 +1251,7 @@
         private System.Windows.Forms.ComboBox cbOrderCompositionMaterialFilter;
         private System.Windows.Forms.Button btnFindOrders;
         private System.Windows.Forms.NumericUpDown numOrderCompositionMaxPositionPrice;
-        private System.Windows.Forms.Button btnResetFilters;
+        private System.Windows.Forms.Button btnResetOrderCompositionFilters;
         private System.Windows.Forms.NumericUpDown numOrderCompositionQuantityFilter;
         private System.Windows.Forms.CheckBox chbOrderCompositionQuantityFilter;
         private System.Windows.Forms.TabPage tabOrders;

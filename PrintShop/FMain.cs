@@ -419,7 +419,7 @@ namespace PrintShop
 
             cmd.Parameters.AddWithValue("@id_user", userId);
             cmd.Parameters.AddWithValue("@accessLevel", access_level);
-            cmd.Parameters.AddWithValue("@id_order", !chbOrderCompositionOrderIdFilter.Checked || txtOrderCompositionOrderIdFilter.Text == "" ? (object)DBNull.Value : Convert.ToInt32(txtOrderCompositionOrderIdFilter.Text));
+            cmd.Parameters.AddWithValue("@id_order", !chbOrderCompositionFilterOrderId.Checked || txtOrderCompositionOrderIdFilter.Text == "" ? (object)DBNull.Value : Convert.ToInt32(txtOrderCompositionOrderIdFilter.Text));
             cmd.Parameters.AddWithValue("@productName", !chbOrderCompositionProductNameFilter.Checked || cbOrderCompositionProductNameFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionProductNameFilter.Text);
             cmd.Parameters.AddWithValue("@id_color", !chbOrderCompositionColorFilter.Checked || cbOrderCompositionColorFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionColorFilter.SelectedValue);
             cmd.Parameters.AddWithValue("@id_addProduct", !chbOrderCompositionAdditionalProductFilter.Checked || cbOrderCompositionAdditionalProductFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionAdditionalProductFilter.SelectedValue);
@@ -503,6 +503,36 @@ namespace PrintShop
         private void btnSearchFilteredOrders_Click(object sender, EventArgs e)
         {
             FindFilteredOrders();
+        }
+
+        private void btnResetOrderFilters_Click(object sender, EventArgs e)
+        {
+            chbOrderFilterDate.Checked = false;
+            chbOrderFilterMaxPrice.Checked = false;
+            chbOrderFilterStatus.Checked = false;
+            chbOrderFilterOrderId.Checked = false;
+            chbOrderFilterStaffFIO.Checked = false;
+            chbOrderFilterUserFIO.Checked = false;
+
+            txtOrderFilterOrderId.Text = "";
+            txtOrderFilterUserFIO.Text = "";
+            cbOrderFilterStaffFIO.Text = "";
+            cbOrderFilterStatus.Text = "";
+            numOrderFilterMaxPrice.Value = 0;
+            FindFilteredOrders();
+        }
+
+        private void txtFilterOrderId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnResetOrderCompositionFilters_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
