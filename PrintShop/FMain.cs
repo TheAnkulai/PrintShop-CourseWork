@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PrintShop
@@ -30,7 +24,7 @@ namespace PrintShop
             
 
             //Услуги
-            classAdo.ComboBoxBind("ViewCategories", cbCategories, "categoryName", "id_category");
+            classAdo.ComboBoxBind("GetCategories", cbCategories, "categoryName", "id_category");
             classAdo.DataGridBindOfProc("ViewProducts", dgvProducts);
             classAdo.AddButton(dgvProducts, "dtnAddProductToCart", "Добавить в корзину");
 
@@ -53,9 +47,9 @@ namespace PrintShop
 
             //Состав Заказов
             classAdo.ComboBoxBind("ViewProducts", cbOrderCompositionProductNameFilter, "Название", "ID");
-            classAdo.ComboBoxBind("ViewColors", cbOrderCompositionColorFilter, "color", "id_color");
+            classAdo.ComboBoxBind("GetColors", cbOrderCompositionColorFilter, "color", "id_color");
             classAdo.ComboBoxBind("ViewAdditionalProducts", cbOrderCompositionAdditionalProductFilter, "Название", "ID");
-            classAdo.ComboBoxBind("ViewMaterials", cbOrderCompositionMaterialFilter, "materialName", "id_material");
+            classAdo.ComboBoxBind("GetMaterials", cbOrderCompositionMaterialFilter, "materialName", "id_material");
 
             //обычный пользователь
             if (access_level == 3)
@@ -89,7 +83,7 @@ namespace PrintShop
             {
                 //Услуги
 
-                classAdo.ComboBoxBind("viewCategories", cbCategoryAdd, "categoryName", "id_category");
+                classAdo.ComboBoxBind("GetCategories", cbCategoryAdd, "categoryName", "id_category");
 
                 classAdo.AddButton(dgvProducts, "btnEditProduct", "Изменить");
                 classAdo.AddButton(dgvProducts, "btnDeleteProduct", "Удалить");
@@ -102,6 +96,7 @@ namespace PrintShop
                 classAdo.DataGridBindOfProc("ViewOrders", dgvOrderPositions);
 
                 //Заказы
+                classAdo.ComboBoxBind("GetStaffFIO", cbOrderFilterStaffFIO, "FIO", "id_staff");
                 classAdo.DataGridBindOfProc("ViewFilteredOrders", dgvOrders);
                 classAdo.AddButton(dgvOrders, "btnEditOrder", "Изменить");
             }
@@ -496,7 +491,7 @@ namespace PrintShop
             cmd.Parameters.AddWithValue("@orderDateFrom", !chbOrderFilterDate.Checked ? (object)DBNull.Value : dateOrderFrom.Value.Date);
             cmd.Parameters.AddWithValue("@orderDateTo", !chbOrderFilterDate.Checked ? (object)DBNull.Value : dateOrderTo.Value.Date);
             cmd.Parameters.AddWithValue("@maxTotalPrice", !chbOrderFilterMaxPrice.Checked ? (object)DBNull.Value : numOrderFilterMaxPrice.Value);
-            cmd.Parameters.AddWithValue("@status", !chbOrderFilterStatus.Checked || cbOrderFilterStatus.SelectedValue == null ? (object)DBNull.Value : cbOrderFilterStatus.Text);
+            cmd.Parameters.AddWithValue("@status", !chbOrderFilterStatus.Checked || cbOrderFilterStatus.Text == "" ? (object)DBNull.Value : cbOrderFilterStatus.Text);
             cmd.Parameters.AddWithValue("@FIO", !chbOrderFilterUserFIO.Checked || txtOrderFilterUserFIO.Text == "" ? (object)DBNull.Value : txtOrderFilterUserFIO.Text);
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);

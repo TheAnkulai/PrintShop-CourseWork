@@ -72,6 +72,8 @@ namespace PrintShop
                     fMain.lblUser.Text = $"{FIO} ID = {userId.ToString()}";
 
                     fMain.ShowDialog();
+                    txtLogin.Text = "";
+                    txtPassword.Text = "";
                 }
             }
         }
