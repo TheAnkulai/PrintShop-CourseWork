@@ -37,8 +37,8 @@ namespace PrintShop
             txtProductPricePerEach.Text = productPricePerEach.ToString();
             cbAdditionalProduct.Text = "Нет";
             classAdo.ComboBoxBind("ViewAdditionalProducts", cbAdditionalProduct, "Название", "ID");
-            classAdo.ComboBoxBind("ViewMaterials", cbMaterial, "materialName", "id_material");
-            classAdo.ComboBoxBind("ViewColors", cbColor, "color", "id_color");
+            classAdo.ComboBoxBind("GetMaterials", cbMaterial, "materialName", "id_material");
+            classAdo.ComboBoxBind("GetColors", cbColor, "color", "id_color");
         }
 
 

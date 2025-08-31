@@ -32,7 +32,7 @@ namespace PrintShop
             cbStaffFIO.Text = OrderStaffFIO;
             cbOrderStatus.Text = OrderStatus;
 
-            classAdo.ComboBoxBind("ViewStaffFIO", cbStaffFIO, "FIO", "id_staff");
+            classAdo.ComboBoxBind("GetStaffFIO", cbStaffFIO, "FIO", "id_staff");
         }
 
         private void btnSaveOrder_Click(object sender, EventArgs e)

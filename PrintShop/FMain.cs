@@ -2,6 +2,8 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace PrintShop
 {
@@ -55,7 +57,6 @@ namespace PrintShop
             if (access_level == 3)
             {
                 //Вкладки
-                if (TabControl1.TabPages.Contains(tabClients)) TabControl1.TabPages.Remove(tabClients);
                 if (TabControl1.TabPages.Contains(tabStaff)) TabControl1.TabPages.Remove(tabStaff);
                 if (TabControl1.TabPages.Contains(tabReports)) TabControl1.TabPages.Remove(tabReports);
                 if (TabControl1.TabPages.Contains(tabOrders)) TabControl1.TabPages.Remove(tabOrders);
@@ -71,7 +72,7 @@ namespace PrintShop
                 btnAddAdditionalProduct.Visible = false;
 
                 //Состав Заказов
-                classAdo.DataGridBindOfProcWithParameters("ViewUserOrders", "@id_user", userId, dgvOrderPositions);
+                classAdo.DataGridBindOfProcWithParameters("ViewUserOrders", "@id_user", userId, dgvOrderComposition);
                 chbOrderCompositionUserFIOFilter.Enabled = false;
                 chbOrderCompositionUserFIOFilter.Visible = false;
                 txtOrderCompositionUserFIOFilter.Visible = false;
@@ -93,12 +94,17 @@ namespace PrintShop
                 //Корзина
 
                 //Состав Заказов
-                classAdo.DataGridBindOfProc("ViewOrders", dgvOrderPositions);
+                classAdo.DataGridBindOfProc("ViewOrders", dgvOrderComposition);
 
                 //Заказы
                 classAdo.ComboBoxBind("GetStaffFIO", cbOrderFilterStaffFIO, "FIO", "id_staff");
                 classAdo.DataGridBindOfProc("ViewFilteredOrders", dgvOrders);
                 classAdo.AddButton(dgvOrders, "btnEditOrder", "Изменить");
+
+                //Сотрудники
+                classAdo.ComboBoxBind("GetPositions", cbStaffPositionSearch,"positionName", "id_position");
+                classAdo.DataGridBindOfProc("ViewStaff", dgvStaff);
+                classAdo.ComboBoxBind("GetPositions", cbAddStaffPosition, "positionName", "id_position"); 
             }
         }
 
@@ -388,11 +394,11 @@ namespace PrintShop
                 MessageBox.Show("Заказ успешно оформлен! Количество позиций в заказе: " + cart.Items.Count, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (access_level == 1)
                 {
-                    classAdo.DataGridBindOfProc("ViewOrders", dgvOrderPositions);
+                    classAdo.DataGridBindOfProc("ViewOrders", dgvOrderComposition);
                 }
                 else if (access_level == 3)
                 {
-                    classAdo.DataGridBindOfProcWithParameters("ViewUserOrders", "@id_user", userId, dgvOrderPositions);
+                    classAdo.DataGridBindOfProcWithParameters("ViewUserOrders", "@id_user", userId, dgvOrderComposition);
                 }
                 cart.Items.Clear();
                 cart.RefreshCart(dgvCart, cart);
@@ -428,7 +434,7 @@ namespace PrintShop
             cmd.Parameters.AddWithValue("@orderDateFrom", !chbOrderCompositionDateFilter.Checked ? (object)DBNull.Value : dateOrderPositionFromFilter.Value.Date);
             cmd.Parameters.AddWithValue("@orderDateTo", !chbOrderCompositionDateFilter.Checked ? (object)DBNull.Value : dateOrderPositionToFilter.Value.Date);
             cmd.Parameters.AddWithValue("@maxPositionPrice", !chbOrderCompositionMaxPositionPriceFilter.Checked || numOrderCompositionMaxPositionPrice.Value == 0 ? (object)DBNull.Value : numOrderCompositionMaxPositionPrice.Value);
-            cmd.Parameters.AddWithValue("@status", !chbOrderCompositionStatusFilter.Checked || cbOrderCompositionStatusFilter.SelectedValue == null ? (object)DBNull.Value : cbOrderCompositionStatusFilter.Text);
+            cmd.Parameters.AddWithValue("@status", !chbOrderCompositionStatusFilter.Checked || cbOrderCompositionStatusFilter.Text  == "" ? (object)DBNull.Value : cbOrderCompositionStatusFilter.Text);
             if (access_level == 1)
             {
                 cmd.Parameters.AddWithValue("@FIO", !chbOrderCompositionUserFIOFilter.Checked || txtOrderCompositionUserFIOFilter.Text == "" ? (object)DBNull.Value : txtOrderCompositionUserFIOFilter.Text);
@@ -438,9 +444,34 @@ namespace PrintShop
             DataTable table = new DataTable();
             conn.Open();
             adapter.Fill(table);
-            dgvOrders.DataSource = table;
+            dgvOrderComposition.DataSource = table;
         }
 
+        private void btnResetOrderCompositionFilters_Click(object sender, EventArgs e)
+        {
+            chbOrderCompositionAdditionalProductFilter.Checked = false;
+            chbOrderCompositionColorFilter.Checked = false;
+            chbOrderCompositionDateFilter.Checked = false;
+            chbOrderCompositionFilterOrderId.Checked = false;
+            chbOrderCompositionMaterialFilter.Checked = false;
+            chbOrderCompositionMaxPositionPriceFilter.Checked = false;
+            chbOrderCompositionProductNameFilter.Checked = false;
+            chbOrderCompositionQuantityFilter.Checked = false;
+            chbOrderCompositionStatusFilter.Checked = false;
+            chbOrderCompositionUserFIOFilter.Checked = false;
+
+            txtOrderCompositionOrderIdFilter.Text = string.Empty;
+            txtOrderCompositionUserFIOFilter.Text = string.Empty;
+
+            numOrderCompositionMaxPositionPrice.Value = 0;
+            numOrderCompositionQuantityFilter.Value = 0;
+
+            cbOrderCompositionAdditionalProductFilter.Text = string.Empty;
+            cbOrderCompositionColorFilter.Text = string.Empty;
+            cbOrderCompositionMaterialFilter.Text = string.Empty;
+            cbOrderCompositionProductNameFilter.Text = string.Empty;
+            cbOrderCompositionStatusFilter.Text = string.Empty;
+        }
 
         //Вкладка Заказы
         private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -530,9 +561,229 @@ namespace PrintShop
             }
         }
 
-        private void btnResetOrderCompositionFilters_Click(object sender, EventArgs e)
+        //Вкладка Сотрудники
+        private void btnStaffSearch_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand("ViewStaff", conn);
 
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@id_position", cbStaffPositionSearch.Text != "" ? cbStaffPositionSearch.SelectedValue : (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@staffFIO", txtStaffFIOSearch.Text != "" ? txtStaffFIOSearch.Text : (object)DBNull.Value);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            conn.Open();
+            adapter.Fill(table);
+            dgvStaff.DataSource = table;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtStaffFIOSearch.Text = "";
+            cbStaffPositionSearch.Text = "";
+            classAdo.DataGridBindOfProc("ViewStaff", dgvStaff);
+        }
+
+        private void btnAddNewStaff_Click(object sender, EventArgs e)
+        {
+            classAdo.StProcExec("AddStaff");
+            SqlCommand cmd = classAdo.StProcExec("AddStaff");
+
+            cmd.Parameters.AddWithValue("@lastName", txtAddStaffLastNane.Text);
+            cmd.Parameters.AddWithValue("@firstName", txtAddStaffFirstName.Text);
+            cmd.Parameters.AddWithValue("@id_position", cbAddStaffPosition.SelectedValue);
+
+            SqlParameter ReturnValue = new SqlParameter();
+            ReturnValue.Direction = ParameterDirection.ReturnValue;
+            ReturnValue.SqlDbType = SqlDbType.Int;
+            cmd.Parameters.Add(ReturnValue);
+
+            cmd.ExecuteNonQuery();
+
+            int result = (int)ReturnValue.Value;
+
+            if (result == 0) MessageBox.Show("Новый сотрудник успешно добавлен!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (result == -1) MessageBox.Show("Такой сотрудник уже существует!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            classAdo.DataGridBindOfProc("ViewStaff", dgvStaff);
+        }
+
+        private void rbReportProducts_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart("RatingProducts", "Товар");
+        }
+
+        private void rbReportCategory_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart("RatingCategories", "Категория");
+        }
+
+        private void rbReportMaterials_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart("RatingMaterials", "Материал");
+        }
+
+        private void rbReportStaff_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadChart("RatingStaff", "Сотрудник");
+        }
+
+        private void LoadChart(string procedureName, string columnName)
+        {
+            classAdo.StProcExec(procedureName);
+            SqlCommand cmd = classAdo.StProcExec(procedureName);
+            cmd.Parameters.Add("@dateFrom", SqlDbType.Date);
+            cmd.Parameters.Add("@dateTo", SqlDbType.Date);
+
+            cmd.Parameters["@dateFrom"].Value = dateReportFrom.Value;
+            cmd.Parameters["@dateTo"].Value = dateReportTo.Value;
+
+
+            SqlDataAdapter reportAdapter = new SqlDataAdapter();
+            reportAdapter.SelectCommand = cmd;
+            DataSet dsReport = new DataSet();
+            reportAdapter.Fill(dsReport, "Report");
+            dgvReport.DataSource = dsReport.Tables[0].DefaultView;
+
+            chartReport.Series.Clear();
+            chartReport.Titles.Clear();
+            chartReport.ChartAreas.Clear();
+
+            Series series = new Series("diagram")
+            {
+                XValueMember = columnName,
+                YValueMembers = "Кол-во",
+                ChartType = SeriesChartType.Column
+
+            };
+
+            chartReport.ChartAreas.Add(new ChartArea("MainArea"));
+            chartReport.Series.Add(series);
+            chartReport.DataSource = dsReport;
+            chartReport.DataBind();
+
+            decimal sumPrice = 0;
+            int sumCount = 0;
+
+            for (int i = 0; i < dgvReport.RowCount - 1; i++)
+            {
+                sumCount += int.Parse(dgvReport[dgvReport.ColumnCount - 2, i].Value.ToString());
+                sumPrice += decimal.Parse(dgvReport[dgvReport.ColumnCount - 1, i].Value.ToString());
+            }
+
+            int lastRow = dgvReport.RowCount - 1;
+            dgvReport[dgvReport.ColumnCount - 3, lastRow].Value = "Итого: ";
+            dgvReport[dgvReport.ColumnCount - 2, lastRow].Value = sumCount.ToString();
+            dgvReport[dgvReport.ColumnCount - 1, lastRow].Value = sumPrice.ToString();
+        }
+
+        private void btnSaveReport_Click(object sender, EventArgs e)
+        {
+            string title = "";
+            if (rbReportProducts.Checked)
+            {
+                title = "Рейтинг Товаров ";
+            }
+            if (rbReportCategory.Checked)
+            {
+                title = "Рейтинг категорий";
+            }
+            if (rbReportMaterials.Checked)
+            {
+                title = "Рейтинг материалов";
+            }
+            if (rbReportStaff.Checked)
+            {
+                title = "Рейтинг сотрудников";
+            }
+            title += $" за период с {dateReportFrom.Value.ToShortDateString()} по {dateReportTo.Value.ToShortDateString()}";
+
+            Excel.Application Excelapp = new Excel.Application();
+            Excel.Workbook Excelworkbook;
+            Excel.Worksheet Excelworksheet;
+            Excel.Range ExcelCells;
+
+            Excelworkbook = Excelapp.Workbooks.Add(System.Reflection.Missing.Value);
+            Excelworksheet = (Excel.Worksheet)Excelworkbook.Worksheets.get_Item(1);
+            Excelapp.Cells[1, 1] = title;
+
+            for (int i = 0; i < dgvReport.ColumnCount - 1; i++)
+            {
+                Excelapp.Cells[2, i + 1] = dgvReport.Columns[i].HeaderCell.Value;
+            }
+            for (int i = 0; i < dgvReport.Rows.Count; i++)
+            {
+                for (int j = 0; j < dgvReport.ColumnCount; j++)
+                {
+                    Excelapp.Cells[i + 3, j + 1] = dgvReport[j, i].Value;
+                }
+            }
+
+            int istr = dgvReport.Rows.Count + 1;
+
+            ExcelCells = Excelapp.Range[Excelworksheet.Columns[2], Excelworksheet.Cells[istr, dgvReport.ColumnCount]];
+            ExcelCells.EntireColumn.AutoFit();
+            ExcelCells = Excelapp.Range[Excelworksheet.Columns[1], Excelworksheet.Columns[dgvReport.ColumnCount - 1]];
+            ExcelCells.HorizontalAlignment = Excel.Constants.xlLeft;
+            ExcelCells = Excelapp.Range[Excelworksheet.Cells[2, 1], Excelworksheet.Cells[istr + 1, dgvReport.ColumnCount]];
+            ExcelCells.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+            ExcelCells.Borders.Weight = Excel.XlBorderWeight.xlThin;
+            Excelapp.Visible = true;
+            Excelapp.UserControl = true;
+
+            Excel.Range chartRange;
+
+            Excel.ChartObjects xlCharts = (Excel.ChartObjects)Excelworksheet.ChartObjects(Type.Missing);
+            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(5, 180, 300, 250);
+            Excel.Chart chartPage = myChart.Chart;
+
+            int col = dgvReport.ColumnCount - 2;
+            string liter = "";
+
+            switch (col)
+            {
+                case 1:
+                    liter = "B";
+                    break;
+                case 2:
+                    liter = "C";
+                    break;
+                case 3:
+                    liter = "D";
+                    break;
+                case 4:
+                    liter = "E";
+                    break;
+                case 5:
+                    liter = "F";
+                    break;
+                case 6:
+                    liter = "G";
+                    break;
+                case 7:
+                    liter = "H";
+                    break;
+                case 8:
+                    liter = "I";
+                    break;
+                case 9:
+                    liter = "J";
+                    break;
+                case 10:
+                    liter = "K";
+                    break;
+                default:
+                    break;
+            }
+
+            chartRange = Excelworksheet.get_Range(liter + "3", liter + (istr).ToString());
+
+            chartPage.SetSourceData(chartRange, Type.Missing);
+            chartPage.ChartType = Excel.XlChartType.xl3DColumn;
+
+            chartPage.ApplyDataLabels(Excel.XlDataLabelsType.xlDataLabelsShowPercent, true, true, true, false, false, false, true);
         }
     }
 }

@@ -22,8 +22,8 @@ namespace PrintShop
         private void FEditCartItem_Load(object sender, EventArgs e)
         {
             classAdo.ComboBoxBind("ViewAdditionalProducts", cbAdditionalProduct, "Название", "ID");
-            classAdo.ComboBoxBind("ViewMaterials", cbMaterial, "materialName", "id_material");
-            classAdo.ComboBoxBind("ViewColors", cbColor, "color", "id_color");
+            classAdo.ComboBoxBind("GetMaterials", cbMaterial, "materialName", "id_material");
+            classAdo.ComboBoxBind("GetColors", cbColor, "color", "id_color");
 
             txtProductName.Text = cart.Items[index].Product.productName;
             txtCategory.Text = cart.Items[index].Product.categoryName;
